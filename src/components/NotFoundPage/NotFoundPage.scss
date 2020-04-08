@@ -1,0 +1,25 @@
+.not-found {
+  &__container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 24px 152px;
+  }
+
+  &__text {
+    width: fit-content;
+    margin: 400px auto;
+    font-size: 48px;
+  }
+}
+
+.mini-link {
+  display: block;
+  height: 16px;
+  width: 16px;
+
+  &__img {
+    height: 100%;
+    width: 100%;
+  }
+}

@@ -1,0 +1,15 @@
+.basket {
+  &__goodList {
+    list-style-type: none;
+    width: 72%;
+  }
+
+  &__list-item {
+
+    padding: 24px;
+    margin: 0 16px 16px 0;
+    border: 1px solid #E2E6E9;
+    box-sizing: border-box;
+  }
+
+}

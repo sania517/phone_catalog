@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'Akrobat';
+  src: url('./fonts/Akrobar/Akrobat-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Akrobat';
+  src: url('./fonts/Akrobar/Akrobat-Bold.otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Akrobat';
+  src: url('./fonts/Akrobar/Akrobat-Bold.otf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Akrobat, Helvetica, sans-serif;
+}
+
+body,
+label,
+ul,
+li,
+h1,
+h2,
+h3,
+p,
+button {
+  padding: 0px;
+  margin: 0px;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+.link-chain {
+  display: flex;
+  margin-bottom: 41px;
+
+  &--min {
+    margin-bottom: 16xp;
+  }
+
+  &__item {
+    margin-right: 10px;
+    color: #89939a;
+    text-decoration: none;
+  }
+}
+
+a.link-chain__item:hover  {
+  color: #313237;
+}

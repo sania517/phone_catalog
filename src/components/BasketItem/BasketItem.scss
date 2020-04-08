@@ -1,0 +1,87 @@
+.basket {
+  &__good {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__count {
+    display: flex;
+    width: 96px;
+    height: 32px;
+    justify-content: space-between;
+    margin-right: 6%;
+    align-items: center;
+
+  }
+
+  &__good-name {
+    margin-right: 7%;
+    width: 38%;
+  }
+
+  &__image-container {
+    height: 66px;
+    width: 66px;
+    margin-right: 4%;
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  &__delete-button {
+    border: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    line-height: 1px;
+    margin-right: 4%;
+  }
+
+  &__delete-button #close-icon{
+    fill: #B4BDC4;
+  }
+
+  &__delete-button:hover #close-icon{
+    fill: #eb5757;
+  }
+
+  &__item-quantity {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    color: #000000;
+    margin: 0;
+  }
+
+  &__quantity-button{
+    height: 32px;
+    width: 32px;
+    background-color: transparent;
+    border: 1px solid #B4BDC4;
+    line-height: 1px;
+  }
+
+  &__quantity-button:hover {
+    border: 1px solid #313237;
+  }
+
+  &__quantity-button #basket__quantity-svg{
+    fill: #000;
+  }
+
+  &__item-sum {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 140%;
+    color: #313237;
+  }
+
+  &__item-sum::before {
+    content: "$";
+
+  }
+
+}

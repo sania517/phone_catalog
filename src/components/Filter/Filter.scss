@@ -1,0 +1,41 @@
+.filter {
+  display: flex;
+  margin: 40px 0 24px;
+
+
+  &__label {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15px;
+    color: #89939a;
+    position: relative;
+    p {
+      margin-bottom: 4px;
+    }
+  }
+
+  &__input,
+  &__select {
+    height: 40px;
+    margin-right: 16px;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    background-color: transparent;
+    border: 1px solid #B4BDC4;
+    box-sizing: border-box;
+    padding-left: 12px;
+    padding-right: 10px;
+  }
+
+  &__input {
+    width: 200px;
+    padding-right: 35px;
+  }
+
+  &__search-img {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  }
+}
