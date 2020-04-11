@@ -1,0 +1,25 @@
+.featured {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 152px;
+
+  &__title {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 41px;
+    letter-spacing: -0.01em;
+    color: #313237;
+    margin-top: 40px;
+  }
+
+  &__amount {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    margin: 8px 0 40px;
+    color: #89939a;
+  }
+
+}
+

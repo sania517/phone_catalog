@@ -8,15 +8,52 @@ const PORT = 11111;
 
 app.use(cors());
 
-app.get('/', (req, res) => {
+app.get('/phones', (req, res) => {
   const filePath = path.join(__dirname, '../data/phones.json');
   const data = fs.readFileSync(filePath);
 
   res.json(JSON.parse(data));
 });
 
-app.get('/:phoneId', (req, res) => {
-  const filePath = path.join(__dirname, `../data/${req.params.phoneId}.json`);
+app.get('/tablets', (req, res) => {
+  const filePath = path.join(__dirname, '../data/tablets.json');
+  const data = fs.readFileSync(filePath);
+
+  res.json(JSON.parse(data));
+});
+
+app.get('/accessories', (req, res) => {
+  const filePath = path.join(__dirname, '../data/accessories.json');
+  const data = fs.readFileSync(filePath);
+
+  res.json(JSON.parse(data));
+});
+
+app.get('/phones/:phoneId', (req, res) => {
+  const filePath = path.join(
+    __dirname,
+    `../data/phones/${req.params.phoneId}.json`,
+  );
+  const data = fs.readFileSync(filePath);
+
+  res.json(JSON.parse(data));
+});
+
+app.get('/tablets/:tabletId', (req, res) => {
+  const filePath = path.join(
+    __dirname,
+    `../data/tablets/${req.params.tabletId}.json`,
+  );
+  const data = fs.readFileSync(filePath);
+
+  res.json(JSON.parse(data));
+});
+
+app.get('/accessories/:accessoryId', (req, res) => {
+  const filePath = path.join(
+    __dirname,
+    `../data/accessories/${req.params.accessoryId}.json`,
+  );
   const data = fs.readFileSync(filePath);
 
   res.json(JSON.parse(data));

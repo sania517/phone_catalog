@@ -1,37 +1,98 @@
-import React, { FC } from 'react'
-import './Phone.scss'
-import heart from './../../img/heart.png'
-import { Link } from 'react-router-dom'
+import React, { FC } from 'react';
+import './Phone.scss';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import heart from '../../img/heart.svg';
+import heart_like from '../../img/heart_like.svg';
+import { addBasketItem, getIsInBasketGood, getIsInFeaturedGood, deleteFeaturedItem, addFeaturedItem, getPhoneById } from '../../store/store';
 
 interface Props {
   phone: Phone;
+  addPhoneInBasket: (payload: {id: string; item: BasketItem}) => void;
+  addPhoneInFutured: (payload: {id: string; item: FeaturedGood}) => void;
+  isInBasket: boolean;
+  isInFeatured: boolean;
+  deleteFromFeatured: (payload: string) => void;
 }
 
-export const Phone: FC<Props> = ({ phone }) => {
-  const { id, imageUrl, name, regularPrice, discount, screenSize, screenType, flash, ram} = phone
+interface OwnProps {
+  phone: Phone;
+}
+
+const Phone: FC<Props> = (props) => {
+  const {
+    phone,
+    addPhoneInBasket,
+    isInBasket,
+    isInFeatured,
+    deleteFromFeatured,
+    addPhoneInFutured,
+  } = props;
+
+  const {
+    id,
+    imageUrl,
+    name,
+    regularPrice,
+    discount,
+    screenSize,
+    screenType,
+    flash,
+    ram,
+  } = phone;
+
+  const onAddButton = () => {
+    const price = discount ? ~~(regularPrice * (100 - discount) / 100) : regularPrice;
+    const basketItem: BasketItem = {
+      img: imageUrl,
+      name,
+      quantity: 1,
+      priceWithDiscount: price,
+    };
+
+    addPhoneInBasket({
+      id, item: basketItem,
+    });
+  };
+
+  const onFeaturedHandler = () => {
+    if (isInFeatured) {
+      deleteFromFeatured(id);
+    } else {
+      const newPhoneFeatured = {
+        ...phone, goodCategory: 'phone',
+      };
+
+      addPhoneInFutured({
+        id, item: newPhoneFeatured,
+      });
+    }
+  };
 
   return (
     <div className="phone">
       <Link to={`/phones/${id}`} className="phone__img-container">
-        <img src={imageUrl} alt="phone" className="phone__img"/>
+        <img src={imageUrl} alt="phone" className="phone__img" />
       </Link>
       <Link to={`/phones/${id}`} className="phone__title">
         {name}
       </Link>
       <div className="phone__price">
         <h2 className="phone__discount">
-          {regularPrice && discount ? ~~(+(regularPrice) * (1 - discount  / 100)) : regularPrice }
+          {regularPrice && discount ? ~~(+(regularPrice) * (1 - discount / 100)) : regularPrice }
         </h2>
 
-          {regularPrice && discount
-            ? <h2 className="phone__regular-price">{regularPrice}</h2>
-            : ''
-          }
+        {regularPrice && discount
+          ? <h2 className="phone__regular-price">{regularPrice}</h2>
+          : ''
+        }
       </div>
       <div className="phone__details details">
         <p className="details__title">Screen</p>
         <p className="details__value">
-          {screenSize ? screenSize + '"' : ''} {screenType}
+          {screenSize ? `${screenSize}"` : ''}
+          {' '}
+          {screenType}
         </p>
       </div>
       <div className="phone__details details">
@@ -43,11 +104,47 @@ export const Phone: FC<Props> = ({ phone }) => {
         <p className="details__value">{ram}</p>
       </div>
       <div className="phone__buttons">
-        <button className="phone__add-button">Add to cart</button>
-        <button>
-          <img src={heart} alt='favorite button'  className="phone__favorite-button"/>
+        <button
+          disabled={isInBasket}
+          className={isInBasket
+            ? 'phone__add-button--in-basket'
+            : 'phone__add-button'
+          }
+          onClick={onAddButton}
+        >
+          {isInBasket ? 'Added to cart' : 'Add to cart'}
+        </button>
+        <button onClick={onFeaturedHandler}>
+          <img
+            src={isInFeatured
+              ? heart_like
+              : heart
+            }
+            alt="favorite button"
+            className="phone__favorite-button"
+          />
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
+
+const dispatchMapToProps = {
+  // setPhones: loadPhones,
+  addPhoneInBasket: addBasketItem,
+  deleteFromFeatured: deleteFeaturedItem,
+  addPhoneInFutured: addFeaturedItem,
+};
+
+const mapStateToProps = (state: PhoneCatalogStore, ownProps: OwnProps) => {
+  const { id } = ownProps.phone;
+
+  return {
+    isInBasket: getIsInBasketGood(state, id),
+    isInFeatured: getIsInFeaturedGood(state, id),
+
+    //  basketCountGoods : getCountAllGoodsInBasket(state),
+  };
+};
+
+export default connect(mapStateToProps, dispatchMapToProps)(Phone);

@@ -1,19 +1,19 @@
-import React, { FC } from 'react'
-import './Basket.scss'
-import { Link } from 'react-router-dom'
-import { deleteBasketItem, getBasket, getSumFromBasket, getCountAllGoodsInBasket } from '../../store/store'
-import { connect } from 'react-redux'
-import BasketItemList from '../BasketItemList/BasketItemList'
+import React, { FC } from 'react';
+import './Basket.scss';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { deleteBasketItem, getBasket, getSumFromBasket, getCountAllGoodsInBasket } from '../../store/store';
+import BasketItemList from '../BasketItemList/BasketItemList';
 
 interface Props {
-  //goods: BasketItem[];
+  // goods: BasketItem[];
   sum: number;
-  countGoods: number
-  //deleteGoods: (id: string) => void;
+  countGoods: number;
+  // deleteGoods: (id: string) => void;
 }
 
-const Basket:FC<Props> = (props) => {
-  console.log('sum', props.sum)
+const Basket: FC<Props> = (props) => {
+  console.log('sum', props.sum);
 
   return (
     <div className="basket">
@@ -31,23 +31,28 @@ const Basket:FC<Props> = (props) => {
         <BasketItemList />
         <div className="basket__checkout">
           <p className="basket__checkout-sum">{props.sum}</p>
-          <p className="basket__checkout-count">Total for {props.countGoods} items</p>
-          <hr/>
+          <p className="basket__checkout-count">
+Total for
+            {props.countGoods}
+            {' '}
+items
+          </p>
+          <hr />
           <button className="basket__checkout-button">Checkout</button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const dispatchMapToProps = {
-  //deleteGoods: deleteBasketItem,
-}
+  // deleteGoods: deleteBasketItem,
+};
 
-const mapStateToProps = (state:PhoneCatalogStore) => ({
-  //goods: getBasket(state),
+const mapStateToProps = (state: PhoneCatalogStore) => ({
+  // goods: getBasket(state),
   sum: getSumFromBasket(state),
   countGoods: getCountAllGoodsInBasket(state),
-})
+});
 
-export default connect( mapStateToProps, dispatchMapToProps)(Basket)
+export default connect(mapStateToProps, dispatchMapToProps)(Basket);

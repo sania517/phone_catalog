@@ -62,10 +62,18 @@
     background-color: transparent;
     border: 1px solid #B4BDC4;
     line-height: 1px;
-  }
 
-  &__quantity-button:hover {
-    border: 1px solid #313237;
+    &:hover {
+      border: 1px solid #313237;
+    }
+
+    &:disabled {
+      border: 1px solid #E2E6E9;
+    }
+
+    &:disabled #basket__quantity-svg {
+      fill: #E2E6E9;
+    }
   }
 
   &__quantity-button #basket__quantity-svg{
@@ -73,6 +81,7 @@
   }
 
   &__item-sum {
+    width: 70px;
     font-size: 22px;
     font-weight: bold;
     line-height: 140%;
@@ -81,7 +90,6 @@
 
   &__item-sum::before {
     content: "$";
-
   }
 
 }
