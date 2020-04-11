@@ -2,19 +2,18 @@ import React, { FC } from 'react';
 import './Basket.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { deleteBasketItem, getBasket, getSumFromBasket, getCountAllGoodsInBasket } from '../../store/store';
 import BasketItemList from '../BasketItemList/BasketItemList';
+import {
+  getSumFromBasket,
+  getCountAllGoodsInBasket,
+} from '../../store/selectors';
 
 interface Props {
-  // goods: BasketItem[];
   sum: number;
   countGoods: number;
-  // deleteGoods: (id: string) => void;
 }
 
 const Basket: FC<Props> = (props) => {
-  console.log('sum', props.sum);
-
   return (
     <div className="basket">
       <div className="link-chain link-chain--min">
@@ -32,13 +31,15 @@ const Basket: FC<Props> = (props) => {
         <div className="basket__checkout">
           <p className="basket__checkout-sum">{props.sum}</p>
           <p className="basket__checkout-count">
-Total for
-            {props.countGoods}
-            {' '}
-items
+            {`Total for ${props.countGoods} items`}
           </p>
           <hr />
-          <button className="basket__checkout-button">Checkout</button>
+          <button
+            type="button"
+            className="basket__checkout-button"
+          >
+            Checkout
+          </button>
         </div>
       </div>
     </div>
@@ -46,11 +47,9 @@ items
 };
 
 const dispatchMapToProps = {
-  // deleteGoods: deleteBasketItem,
 };
 
 const mapStateToProps = (state: PhoneCatalogStore) => ({
-  // goods: getBasket(state),
   sum: getSumFromBasket(state),
   countGoods: getCountAllGoodsInBasket(state),
 });

@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import './Filter.scss';
 import { connect } from 'react-redux';
-import { getQuery, setFilterQuery, setSort } from '../../store/store';
-
+import './Filter.scss';
 import search from '../../img/search.png';
+import { setFilterQuery, setSort } from '../../store/actionCreators';
+import { getQuery } from '../../store/selectors';
 
 interface Props {
   query: string;
@@ -16,7 +16,7 @@ const Filter: FC<Props> = ({ query, setQuery, setSortOption }) => {
     <div className="filter">
       <label className="filter__label">
         <p>Search</p>
-        <img className="filter__search-img" src={search} />
+        <img className="filter__search-img" src={search} alt="" />
         <input
           value={query}
           type="text"

@@ -1,13 +1,27 @@
 import React, { FC, useEffect, useState, Fragment } from 'react';
-import './PhoneDetailsPage.scss';
-import { RouteComponentProps, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { RouteComponentProps, Link } from 'react-router-dom';
+import './PhoneDetailsPage.scss';
 import home from '../../img/home.svg';
 import { loadPhoneFromAPI } from '../../util/util';
 import { Loader } from '../Loader/Loader';
 import heart from '../../img/heart.svg';
-import heart_like from '../../img/heart_like.svg';
-import { getPhones, loadPhones, getIsError, getPriceById, getIsInBasketGood, getIsInFeaturedGood, addBasketItem, deleteFeaturedItem, addFeaturedItem, getPhoneById } from '../../store/store';
+import heartLike from '../../img/heart_like.svg';
+import {
+  addBasketItem,
+  deleteFeaturedItem,
+  addFeaturedItem,
+  loadPhones,
+} from '../../store/actionCreators';
+
+import {
+  getPhones,
+  getIsError,
+  getPriceById,
+  getIsInBasketGood,
+  getIsInFeaturedGood,
+  getPhoneById,
+} from '../../store/selectors';
 
 interface Props {
   phone: Phone | undefined;
@@ -39,9 +53,16 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
     addPhoneInFutured,
   } = props;
 
+  const [phoneData, setPhoneData] = useState<PhoneDetails | null>(null);
+  const [currentImg, setCurrentImg] = useState(0);
+  const [isPhoneRequested, setIsPhoneRequested] = useState(false);
+
   const onAddButton = () => {
     if (phoneData) {
-      const priceItem = price[1] ? ~~(price[0] * (100 - price[1]) / 100) : price[0];
+      const priceItem = price[1]
+        ? Math.floor(price[0] * (100 - price[1]) / 100)
+        : price[0];
+
       const basketItem: BasketItem = {
         img: phoneData.images[0],
         name: phoneData.name,
@@ -71,12 +92,6 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
     }
   };
 
-  const [phoneData, setPhoneData] = useState<PhoneDetails | null>(null);
-  const [currentImg, setCurrentImg] = useState(0);
-  const [isPhoneRequested, setIsPhoneRequested] = useState(false);
-
-  console.log(price);
-
   useEffect(() => {
     if (!phones.length) {
       setPhones();
@@ -86,13 +101,11 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
     loadPhoneFromAPI(match.params.phoneId)
       .then(
         data => {
-          console.log(data);
           setIsPhoneRequested(true);
 
           return setPhoneData(data);
         },
-        error => {
-          console.log('error data', error);
+        () => {
           setPhoneData(null);
           setIsPhoneRequested(true);
         },
@@ -110,14 +123,14 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
           >
             <img src={home} alt="home link" className="mini-link__img" />
           </Link>
-          <p className="link-chain__item ">></p>
+          <p className="link-chain__item ">&gt;</p>
           <Link
             to="/phones"
             className="link-chain__item"
           >
           Phones
           </Link>
-          <p className="link-chain__item">></p>
+          <p className="link-chain__item">&gt;</p>
           <p className="link-chain__item">
             {phoneData
               ? phoneData.name
@@ -150,13 +163,26 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
                     {phoneData.images.map((item, i) => {
                       return (
                         <li
-                          className={`imgs-container__item${i === currentImg ? ' imgs-container__item--active' : ''}`}
+                          className={
+                            `imgs-container__item${
+                              i === currentImg
+                                ? ' imgs-container__item--active'
+                                : ''
+                            }`
+                          }
                           key={item}
                           onMouseOver={() => {
                             setCurrentImg(i);
                           }}
+                          onFocus={() => {
+                            setCurrentImg(i);
+                          }}
                         >
-                          <img className="imgs-container__img" src={item} />
+                          <img
+                            className="imgs-container__img"
+                            src={item}
+                            alt=""
+                          />
                         </li>
                       );
                     })}
@@ -177,7 +203,9 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
                         <Fragment key={color1.title}>
                           <Link
                             key={color1.title}
-                            to={`/phones/${match.params.phoneId.replace(/gb_.+/gim, `gb_${color1.title}`)}`}
+                            to={`/phones/${match.params.phoneId
+                              .replace(/gb_.+/gim, `gb_${color1.title}`)}`
+                            }
                             className={`color-container__outer-border${
                               color1.title === phoneData.color
                                 ? ' color-container__outer-border--active'
@@ -207,7 +235,10 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
                               : ''}`}
                         >
                           <Link
-                            to={`/phones/${match.params.phoneId.replace(/_\d*gb_/gi, `_${item}_`.toLowerCase())}`}
+                            to={`/phones/${match.params.phoneId
+                              .replace(/_\d*gb_/gi, `_${item}_`
+                                .toLowerCase())}`
+                            }
                             className={`memory-container__link${
                               phoneData.storage.flash === item
                                 ? ' memory-container__link--active'
@@ -222,13 +253,21 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
                   <hr />
                   <div className="phone-details__price-container">
                     {price[1]
-                      ? <p className="phone-details__price">{~~(price[0] * (100 - price[1]) / 100)}</p>
+                      ? (
+                        <p className="phone-details__price">
+                          {Math.floor(price[0] * (100 - price[1]) / 100)}
+                        </p>
+                      )
                       : <p className="phone-details__price">{price[0]}</p>
                     }
-                    {price[1] ? <p className="phone-details__price-old">{price[0]}</p> : ''}
+                    {price[1]
+                      ? <p className="phone-details__price-old">{price[0]}</p>
+                      : ''
+                    }
                   </div>
                   <div className="phone-details__buttons">
                     <button
+                      type="button"
                       className={
                         isInBasket
                           ? 'phone-details__add-button--in-basket'
@@ -239,9 +278,12 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
                     >
                       {isInBasket ? 'Added to cart' : 'Add to cart'}
                     </button>
-                    <button onClick={onFeaturedHandler}>
+                    <button
+                      type="button"
+                      onClick={onFeaturedHandler}
+                    >
                       <img
-                        src={isInFeatured ? heart_like : heart}
+                        src={isInFeatured ? heartLike : heart}
                         alt="favorite button"
                         className="phone-details__favorite-button"
                       />
@@ -261,7 +303,9 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
                     </div>
                     <div className="phone__details details">
                       <p className="details__title">Resolution</p>
-                      <p className="details__value">{phoneData.display.screenResolution}</p>
+                      <p className="details__value">
+                        {phoneData.display.screenResolution}
+                      </p>
                     </div>
                     <div className="phone__details details">
                       <p className="details__title">Processor</p>
@@ -309,7 +353,9 @@ ID:
                   </div>
                   <div className="tech-specs__details">
                     <p className="tech-specs__property">Resolution</p>
-                    <p className="tech-specs__value">{phoneData.display.screenResolution}</p>
+                    <p className="tech-specs__value">
+                      {phoneData.display.screenResolution}
+                    </p>
                   </div>
                   <div className="tech-specs__details">
                     <p className="tech-specs__property">Processor</p>
@@ -321,11 +367,15 @@ ID:
                   </div>
                   <div className="tech-specs__details">
                     <p className="tech-specs__property">Built in memory</p>
-                    <p className="tech-specs__value">{phoneData.storage.flash}</p>
+                    <p className="tech-specs__value">
+                      {phoneData.storage.flash}
+                    </p>
                   </div>
                   <div className="tech-specs__details">
                     <p className="tech-specs__property">Camera</p>
-                    <p className="tech-specs__value">{phoneData.camera.primary}</p>
+                    <p className="tech-specs__value">
+                      {phoneData.camera.primary}
+                    </p>
                   </div>
                   <div className="tech-specs__details">
                     <p className="tech-specs__property">Zoom</p>
@@ -333,7 +383,9 @@ ID:
                   </div>
                   <div className="tech-specs__details">
                     <p className="tech-specs__property">Cell</p>
-                    <p className="tech-specs__value">{phoneData.connectivity.cell}</p>
+                    <p className="tech-specs__value">
+                      {phoneData.connectivity.cell}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -352,7 +404,10 @@ const dispatchMapToProps = {
   addPhoneInFutured: addFeaturedItem,
 };
 
-const mapStateToProps = (state: PhoneCatalogStore, ownProps: RouteComponentProps<TParams>) => {
+const mapStateToProps = (
+  state: PhoneCatalogStore,
+  ownProps: RouteComponentProps<TParams>,
+) => {
   const { phoneId } = ownProps.match.params;
 
   return {

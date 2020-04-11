@@ -2,8 +2,9 @@ import React, { FC } from 'react';
 import './BasketItemList.scss';
 
 import { connect } from 'react-redux';
-import { getBasket, deleteBasketItem } from '../../store/store';
 import BasketItem from '../BasketItem/BasketItem';
+import { deleteBasketItem } from '../../store/actionCreators';
+import { getBasket } from '../../store/selectors';
 
 interface Props {
   goods: [string, BasketItem][];
@@ -11,8 +12,6 @@ interface Props {
 }
 
 const BasketItemList: FC<Props> = ({ goods, onDelete }) => {
-  console.log(goods);
-
   return (
     <ul className="basket__goodList">
       {!goods.length ? 'Cart is empty now' : ''}

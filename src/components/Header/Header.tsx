@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getCountAllGoodsInBasket, getFeatured } from '../../store/selectors';
 import logoPath from '../../img/logo_lol.png';
 import search from '../../img/search.png';
 import heart from '../../img/heart.png';
-import shopping_bag from '../../img/shopping_bag.svg';
+import shoppingBag from '../../img/shopping_bag.svg';
 import './Header.scss';
 import './second-nav.scss';
-import { connect } from 'react-redux';
-import { getCountAllGoodsInBasket, getFeatured } from '../../store/store';
 
 interface Props {
   basketCountGoods: number;
@@ -67,7 +67,11 @@ const Header: FC<Props> = ({ basketCountGoods, featuredGoods }) => {
       </nav>
       <div className="header__second-nav second-nav">
         <label className="second-nav__search">
-          <input type="text" className="second-nav__input" placeholder="Search" />
+          <input
+            type="text"
+            className="second-nav__input"
+            placeholder="Search"
+          />
           <img src={search} alt="search" className="second-nav__search-img" />
         </label>
         <NavLink
@@ -89,10 +93,18 @@ const Header: FC<Props> = ({ basketCountGoods, featuredGoods }) => {
           activeClassName="second-nav__bag-link--active"
           exact
         >
-          <img src={shopping_bag} alt="shopping_bag" className="second-nav__link-img" />
+          <img
+            src={shoppingBag}
+            alt="shopping_bag"
+            className="second-nav__link-img"
+          />
           {
             basketCountGoods
-              ? <div className="shopping_bag__count-round">{basketCountGoods}</div>
+              ? (
+                <div className="shopping_bag__count-round">
+                  {basketCountGoods}
+                </div>
+              )
               : ''
           }
         </NavLink>

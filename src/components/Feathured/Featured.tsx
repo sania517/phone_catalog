@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import './Featured.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import './Featured.scss';
 import home from '../../img/home.svg';
-import { getFeatured } from '../../store/store';
 import FeaturedList from '../FeaturedList/FeaturedList';
+import { getFeatured } from '../../store/selectors';
 
 interface Props {
   goods: [string, Phone][];
@@ -20,7 +20,7 @@ const Featured: FC<Props> = ({ goods }) => {
         >
           <img src={home} alt="home link" className="mini-link__img" />
         </Link>
-        <p className="link-chain__item">></p>
+        <p className="link-chain__item">&gt;</p>
         <p className="link-chain__item">Favourites</p>
       </div>
       <h1 className="featured__title">Favourites</h1>
@@ -31,7 +31,6 @@ const Featured: FC<Props> = ({ goods }) => {
 };
 
 const dispatchMapToProps = {
-  // setPhones: loadPhones,
 };
 
 const mapStateToProps = (state: PhoneCatalogStore) => ({

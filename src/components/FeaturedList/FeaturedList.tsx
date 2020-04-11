@@ -1,22 +1,22 @@
 import React, { FC } from 'react';
-import './FeaturedList.scss';
 import { connect } from 'react-redux';
-import { getFeatured } from '../../store/store';
+import './FeaturedList.scss';
 import Phone from '../Phone/Phone';
+import { getFeatured } from '../../store/selectors';
 
 interface Props {
   goods: [string, FeaturedGood][];
 }
 
 export const FeaturedList: FC<Props> = ({ goods }) => {
-  console.log(goods);
-
   return (
     <ul className="featured__container">
       {goods.map(good => {
         if (good[1].goodCategory === 'phone') {
           return <li key={good[0]}><Phone phone={good[1]} /></li>;
         }
+
+        return '';
       })}
     </ul>
   );

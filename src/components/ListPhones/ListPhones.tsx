@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import './ListPhones.scss';
 import { connect } from 'react-redux';
-import { getPhones, getFilteredPhones } from '../../store/store';
+import './ListPhones.scss';
 import Phone from '../Phone/Phone';
+import { getFilteredPhones } from '../../store/selectors';
 
 interface Props {
   phones: Phone[];

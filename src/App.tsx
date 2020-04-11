@@ -1,13 +1,11 @@
 import React, { FC } from 'react';
-import Header from './components/Header/Header';
-
+import { Switch, Route } from 'react-router-dom';
 import './App.scss';
-
+import Header from './components/Header/Header';
 import { HomePage } from './components/HomePage/HomePage';
 import PhonesPage from './components/PhonesPage/PhonesPage';
 import PhoneDetailsPage from './components/PhoneDetailsPage/PhoneDetailsPage';
 import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
-import { Switch, Route } from 'react-router-dom';
 import Basket from './components/Basket/Basket';
 import Featured from './components/Feathured/Featured';
 

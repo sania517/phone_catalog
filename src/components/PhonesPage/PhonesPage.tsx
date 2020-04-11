@@ -1,18 +1,17 @@
 import React, { FC, useEffect } from 'react';
 import { connect } from 'react-redux';
-import './PhonesPage.scss';
 import { Link } from 'react-router-dom';
+import './PhonesPage.scss';
 import { Loader } from '../Loader/Loader';
-
-import { loadPhones, getIsError, getPhones } from '../../store/store';
 import ListPhones from '../ListPhones/ListPhones';
 import home from '../../img/home.svg';
 import Filter from '../Filter/Filter';
+import { getIsError, getPhones } from '../../store/selectors';
+import { loadPhones } from '../../store/actionCreators';
 
 interface Props {
   getLoading: boolean;
   phones: Phone[];
-
   setPhones: () => void;
 }
 
@@ -32,7 +31,7 @@ const PhonesPage: FC<Props> = (props) => {
         >
           <img src={home} alt="home link" className="mini-link__img" />
         </Link>
-        <p className="link-chain__item">></p>
+        <p className="link-chain__item">&gt;</p>
         <p className="link-chain__item">Phones</p>
       </div>
       <h1 className="phones-page__title">Mobile Phones</h1>
