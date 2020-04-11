@@ -1,4 +1,5 @@
-const URL_PHONES = 'http://localhost:11111';
+//const URL_PHONES = 'http://localhost:11111';
+const URL_PHONES = '';
 
 export async function loadPhonesFromAPI(): Promise<Phone[]> {
   return fetch(`${URL_PHONES}/phones`)
