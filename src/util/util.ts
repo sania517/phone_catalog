@@ -1,5 +1,5 @@
-const URL_PHONES = 'http://localhost:11111';
-//const URL_PHONES = process.env.REACT_APP_API_URL;
+//const URL_PHONES = 'http://localhost:11111';
+const URL_PHONES = process.env.REACT_APP_URL_PHONES;
 
 export async function loadPhonesFromAPI(): Promise<Phone[]> {
   return fetch(`${URL_PHONES}/phones`)
