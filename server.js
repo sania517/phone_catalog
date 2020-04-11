@@ -10,28 +10,28 @@ app.use(cors());
 
 app.use(express.static('build'));
 
-app.get('/phones', (req, res) => {
+app.get('/data/phones', (req, res) => {
   const filePath = path.join(__dirname, 'src/data/phones.json');
   const data = fs.readFileSync(filePath);
 
   res.json(JSON.parse(data));
 });
 
-app.get('/tablets', (req, res) => {
+app.get('/data/tablets', (req, res) => {
   const filePath = path.join(__dirname, 'src/data/tablets.json');
   const data = fs.readFileSync(filePath);
 
   res.json(JSON.parse(data));
 });
 
-app.get('/accessories', (req, res) => {
+app.get('/data/accessories', (req, res) => {
   const filePath = path.join(__dirname, 'src/data/accessories.json');
   const data = fs.readFileSync(filePath);
 
   res.json(JSON.parse(data));
 });
 
-app.get('/phones/:phoneId', (req, res) => {
+app.get('/data/phones/:phoneId', (req, res) => {
   const filePath = path.join(
     __dirname,
     `src/data/phones/${req.params.phoneId}.json`,
@@ -41,7 +41,7 @@ app.get('/phones/:phoneId', (req, res) => {
   res.json(JSON.parse(data));
 });
 
-app.get('/tablets/:tabletId', (req, res) => {
+app.get('/data/tablets/:tabletId', (req, res) => {
   const filePath = path.join(
     __dirname,
     `src/data/tablets/${req.params.tabletId}.json`,
@@ -51,7 +51,7 @@ app.get('/tablets/:tabletId', (req, res) => {
   res.json(JSON.parse(data));
 });
 
-app.get('/accessories/:accessoryId', (req, res) => {
+app.get('/data/accessories/:accessoryId', (req, res) => {
   const filePath = path.join(
     __dirname,
     `src/data/accessories/${req.params.accessoryId}.json`,
