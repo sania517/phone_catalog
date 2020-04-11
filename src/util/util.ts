@@ -1,5 +1,6 @@
 //const URL_PHONES = 'http://localhost:11111';
-const URL_PHONES = process.env.REACT_APP_URL_PHONES;
+//const URL_PHONES = process.env.REACT_APP_URL_PHONES;
+const URL_PHONES = '/data';
 
 export async function loadPhonesFromAPI(): Promise<Phone[]> {
   return fetch(`${URL_PHONES}/phones`)
