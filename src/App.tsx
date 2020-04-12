@@ -8,18 +8,32 @@ import PhoneDetailsPage from './components/PhoneDetailsPage/PhoneDetailsPage';
 import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
 import Basket from './components/Basket/Basket';
 import Featured from './components/Feathured/Featured';
+import TabletsPage from './components/TabletsPage/TabletsPage';
+import AccessoriesPage from './components/AccessoriesPage/AccessoriesPage';
+import TabletDetailsPage
+  from './components/TabletDetailsPage/TabletDetailsPage';
+
+import AccessoryDetailsPage
+  from './components/AccessoryDetailsPage/AccessoryDetailsPage';
 
 const App: FC = () => {
   return (
     <>
       <Header />
-      <div className="page-top-padding" />
       <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/phones" exact component={PhonesPage} />
+        <Route path="/tablets" exact component={TabletsPage} />
+        <Route path="/accessories" exact component={AccessoriesPage} />
         <Route path="/basket" exact component={Basket} />
         <Route path="/featured" exact component={Featured} />
         <Route path="/phones/:phoneId" component={PhoneDetailsPage} exact />
+        <Route path="/tablets/:tabletId" component={TabletDetailsPage} exact />
+        <Route
+          path="/accessories/:accessoryId"
+          component={AccessoryDetailsPage}
+          exact
+        />
         <Route path="*" component={NotFoundPage} />
       </Switch>
     </>

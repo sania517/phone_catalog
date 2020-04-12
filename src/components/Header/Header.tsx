@@ -45,20 +45,18 @@ const Header: FC<Props> = ({ basketCountGoods, featuredGoods }) => {
           </li>
           <li className="header__nav-item">
             <NavLink
-              to="/"
+              to="/tablets"
               className="header__nav-link"
               activeClassName="header__nav-link--active"
-              exact
             >
                 Tablets
             </NavLink>
           </li>
           <li className="header__nav-item">
             <NavLink
-              to="/"
+              to="/accessories"
               className="header__nav-link"
               activeClassName="header__nav-link--active"
-              exact
             >
               Accessories
             </NavLink>

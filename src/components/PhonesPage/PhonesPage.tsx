@@ -3,23 +3,26 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './PhonesPage.scss';
 import { Loader } from '../Loader/Loader';
-import ListPhones from '../ListPhones/ListPhones';
+import ListGoods from '../ListGoods/ListGoods';
 import home from '../../img/home.svg';
 import Filter from '../Filter/Filter';
 import { getIsError, getPhones } from '../../store/selectors';
-import { loadPhones } from '../../store/actionCreators';
+import { loadPhones, setActiveCategory } from '../../store/actionCreators';
+import { goodsOptions } from '../../util/enums';
 
 interface Props {
   getLoading: boolean;
   phones: Phone[];
   setPhones: () => void;
+  setActive: (payload: goodsOptions) => void;
 }
 
 const PhonesPage: FC<Props> = (props) => {
-  const { setPhones, getLoading, phones } = props;
+  const { setPhones, getLoading, phones, setActive } = props;
 
   useEffect(() => {
     setPhones();
+    setActive(goodsOptions.phone);
   }, []);
 
   return (
@@ -37,13 +40,17 @@ const PhonesPage: FC<Props> = (props) => {
       <h1 className="phones-page__title">Mobile Phones</h1>
       <p className="phones-page__amount">{`${phones.length} models`}</p>
       <Filter />
-      {getLoading ? <Loader /> : <ListPhones />}
+      { getLoading
+        ? <Loader />
+        : <ListGoods option={goodsOptions.phone} />
+      }
     </div>
   );
 };
 
 const dispatchMapToProps = {
   setPhones: loadPhones,
+  setActive: setActiveCategory,
 };
 
 const mapStateToProps = (state: PhoneCatalogStore) => ({

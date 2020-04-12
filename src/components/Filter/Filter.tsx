@@ -1,9 +1,14 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { useRouteMatch } from 'react-router-dom';
 import './Filter.scss';
 import search from '../../img/search.png';
-import { setFilterQuery, setSort } from '../../store/actionCreators';
+import {
+  setFilterQuery,
+  setSort,
+} from '../../store/actionCreators';
 import { getQuery } from '../../store/selectors';
+import { sortOptions } from '../../util/enums';
 
 interface Props {
   query: string;
@@ -11,7 +16,15 @@ interface Props {
   setSortOption: (option: sortOptions) => void;
 }
 
-const Filter: FC<Props> = ({ query, setQuery, setSortOption }) => {
+const Filter: FC<Props> = (props) => {
+  const { query, setQuery, setSortOption } = props;
+  const match = useRouteMatch();
+
+  useEffect(() => {
+    setQuery('');
+    setSortOption(sortOptions.newest);
+  }, [match.path]);
+
   return (
     <div className="filter">
       <label className="filter__label">

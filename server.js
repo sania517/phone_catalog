@@ -10,6 +10,13 @@ app.use(cors());
 
 app.use(express.static('build'));
 
+app.get('/data/hotPrices', (req, res) => {
+  const filePath = path.join(__dirname, 'src/data/hot_prices.json');
+  const data = fs.readFileSync(filePath);
+
+  res.json(JSON.parse(data));
+});
+
 app.get('/data/phones', (req, res) => {
   const filePath = path.join(__dirname, 'src/data/phones.json');
   const data = fs.readFileSync(filePath);

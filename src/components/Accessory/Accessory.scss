@@ -1,0 +1,141 @@
+.accessory {
+  width: 272px;
+  height: 507px;
+  border: 1px solid #E2E6E9;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
+  padding: 32px 32px 24px;
+  margin: 0 8px 40px 0;
+  background-color: rgb(245, 217, 217);
+
+  &__img-container {
+    height: 208px;
+    width: 208px;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  &__title {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    color: #89939a;
+    margin-bottom: 6.5px;
+    text-decoration: none;
+  }
+
+  &__title:hover {
+    color: #313237;
+  }
+
+  &__price {
+    display: flex;
+    position: relative;
+    margin-bottom: 22.5px;
+  }
+
+  &__price::after {
+    display: block;
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: #e2e6e9;
+    position: absolute;
+    bottom: -5px;
+  }
+
+  &__regular-price {
+    font-size: 22px;
+    line-height: 28px;
+    color: #89939a;
+    text-decoration: line-through;
+    align-self: center;
+    font-weight: 500;
+  }
+
+  &__discount {
+    font-size: 22px;
+    line-height: 31px;
+    font-weight: bold;
+    margin-right: 8px;
+    color: #313237;
+  }
+
+  &__discount::before,
+  &__regular-price::before {
+    content: "$";
+  }
+
+  &__buttons {
+    height: 40px;
+    width: 100%;
+    display: flex;
+  }
+
+  &__add-button {
+    color: #fff;
+    background-color: #313237;
+    height: 100%;
+    width: 176px;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+
+  &__add-button--in-basket {
+    color: #27AE60;
+    font-size: 14px;
+    line-height: 21px;
+    border: 1px solid #E2E6E9;
+    background-color: #fff;
+    height: 100%;
+    width: 176px;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+
+  &__add-button:hover {
+    box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.26);
+  }
+
+  &__favorite-button {
+    width: 40px;
+    height: 100%;
+    padding: 11px;
+    border: 1px solid #B4BDC4;
+    box-sizing: border-box;
+    background-color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid #313237;
+    }
+  }
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+  height: 15px;
+
+
+  &__title,
+  &__value {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 600px;
+    color: #89929a;
+  }
+  &__value {
+    color: #313237;
+  }
+
+}

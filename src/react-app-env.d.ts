@@ -1,5 +1,7 @@
 /// <reference types="react-scripts" />
 
+// import { goodsOptions } from "./util/enums";
+
 interface Phone {
   age: number;
   carrier?: string;
@@ -59,15 +61,6 @@ interface AccessoryFeathured extends Accessory {
   goodCategory: string;
 }
 
-interface PhoneCatalogStore {
-  phones: Phone[];
-  isError: boolean;
-  isLoading: boolean;
-  query: string;
-  basket: {[id: string]: BasketItem };
-  featured: {[id: string]: FeaturedGood};
-}
-
 interface PhoneDetails {
   name: string;
   images: string[];
@@ -98,9 +91,61 @@ interface PhoneDetails {
 }
 
 interface TabletDetails {
+  name: string;
+  images: string[];
+  storage: {
+    flash: string;
+    ram: string;
+    availableFlash: string[];
+  };
+  processor: string;
+  description: Array<{title: string; text: string}>;
+  id: string;
+  display: {
+    screenResolution: string;
+    screenSize: string;
+    typeScreen: string;
+  };
+  connectivity: {
+    cell: string;
+  };
+  camera: {
+    primary: string;
+    front: string;
+    zoom: string;
+  };
+  color: string;
+  colorHash: string;
+  avalibleColors: Array<{title: string; value: string}>;
 }
 
 interface AccessoryDetails {
+  name: string;
+  images: string[];
+  storage: {
+    flash: string;
+    ram: string;
+    availableFlash: string[];
+  };
+  processor: string;
+  description: Array<{title: string; text: string}>;
+  id: string;
+  display: {
+    screenResolution: string;
+    screenSize: string;
+    typeScreen: string;
+  };
+  connectivity: {
+    cell: string;
+  };
+  camera: {
+    primary: string;
+    front: string;
+    zoom: string;
+  };
+  color: string;
+  colorHash: string;
+  avalibleColors: Array<{title: string; value: string}>;
 }
 
 enum sortOptions {
@@ -117,4 +162,16 @@ interface BasketItem {
   name: string;
   quantity: number;
   priceWithDiscount: number;
+}
+
+interface PhoneCatalogStore {
+  accessories: Accessory[];
+  tablets: Tablet[];
+  phones: Phone[];
+  isError: boolean;
+  isLoading: boolean;
+  query: string;
+  basket: {[id: string]: BasketItem };
+  featured: {[id: string]: FeaturedGood};
+  activeCategory: goodsOptions;
 }

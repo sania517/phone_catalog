@@ -1,5 +1,5 @@
-//const URL_PHONES = 'http://localhost:11111';
-//const URL_PHONES = process.env.REACT_APP_URL_PHONES;
+// const URL_PHONES = 'http://localhost:11111/data';
+// const URL_PHONES = process.env.REACT_APP_URL_PHONES;
 const URL_PHONES = '/data';
 
 export async function loadPhonesFromAPI(): Promise<Phone[]> {
@@ -37,6 +37,15 @@ export async function loadAccessoryFromAPI(
   accessoryId: string,
 ): Promise<AccessoryDetails> {
   return fetch(`${URL_PHONES}/accessories/${accessoryId}`)
+    .then(
+      response => response.json(),
+    );
+}
+
+export async function loadHotPricesFromAPI(
+  accessoryId: string,
+): Promise<AccessoryDetails> {
+  return fetch(`${URL_PHONES}/hotPrices/${accessoryId}`)
     .then(
       response => response.json(),
     );

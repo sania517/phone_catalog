@@ -1,14 +1,18 @@
 import { createStore, AnyAction, Reducer, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { ActionTypes } from './ActionTypes';
+import { goodsOptions } from '../util/enums';
 
 const initStore: PhoneCatalogStore = {
+  accessories: [],
   phones: [],
+  tablets: [],
   isError: false,
   isLoading: false,
   query: '',
   basket: {},
   featured: {},
+  activeCategory: goodsOptions.phone,
 };
 
 export const reducer: Reducer = (
@@ -45,6 +49,13 @@ export const reducer: Reducer = (
       return {
         ...store,
         featured: newFetured,
+      };
+    }
+
+    case ActionTypes.SET_ACTIVE_CATEGORY: {
+      return {
+        ...store,
+        activeCategory: action.payload,
       };
     }
 
@@ -97,13 +108,25 @@ export const reducer: Reducer = (
       };
     }
 
+    case ActionTypes.SET_TABLETS: {
+      return {
+        ...store, tablets: [...action.payload],
+      };
+    }
+
+    case ActionTypes.SET_ACCESSORIES: {
+      return {
+        ...store, accessories: [...action.payload],
+      };
+    }
+
     case ActionTypes.SET_FILTER_QUERY: {
       return {
         ...store, query: action.payload,
       };
     }
 
-    case ActionTypes.SET_SORT: {
+    case ActionTypes.SET_SORT_PHONES: {
       switch (action.payload) {
         case 'cheaper': {
           return {
@@ -146,6 +169,120 @@ export const reducer: Reducer = (
             ...store,
             phones: store.phones.sort((phone1, phone2) => {
               return phone2.age - phone1.age;
+            }),
+          };
+        }
+
+        case 'rating': {
+          return store;
+        }
+
+        default: {
+          return store;
+        }
+      }
+    }
+
+    case ActionTypes.SET_SORT_TABLETS: {
+      switch (action.payload) {
+        case 'cheaper': {
+          return {
+            ...store,
+            tablets: store.tablets.sort((tablet1, tablet2) => {
+              return tablet1.regularPrice - tablet2.regularPrice;
+            }),
+          };
+        }
+
+        case 'expensive': {
+          return {
+            ...store,
+            tablets: store.tablets.sort((tablet1, tablet2) => {
+              return tablet2.regularPrice - tablet1.regularPrice;
+            }),
+          };
+        }
+
+        case 'name': {
+          return {
+            ...store,
+            tablets: store.tablets.sort((tablet1, tablet2) => {
+              return tablet1.name.localeCompare(tablet2.name);
+            }),
+          };
+        }
+
+        case 'newest': {
+          return {
+            ...store,
+            tablets: store.tablets.sort((tablet1, tablet2) => {
+              return tablet1.age - tablet2.age;
+            }),
+          };
+        }
+
+        case 'oldest': {
+          return {
+            ...store,
+            tablets: store.tablets.sort((tablet1, tablet2) => {
+              return tablet2.age - tablet1.age;
+            }),
+          };
+        }
+
+        case 'rating': {
+          return store;
+        }
+
+        default: {
+          return store;
+        }
+      }
+    }
+
+    case ActionTypes.SET_SORT_ACCESSORIES: {
+      switch (action.payload) {
+        case 'cheaper': {
+          return {
+            ...store,
+            accessories: store.accessories.sort((item1, item2) => {
+              return item1.regularPrice - item2.regularPrice;
+            }),
+          };
+        }
+
+        case 'expensive': {
+          return {
+            ...store,
+            accessories: store.accessories.sort((item1, item2) => {
+              return item2.regularPrice - item1.regularPrice;
+            }),
+          };
+        }
+
+        case 'name': {
+          return {
+            ...store,
+            accessories: store.accessories.sort((item1, item2) => {
+              return item1.name.localeCompare(item2.name);
+            }),
+          };
+        }
+
+        case 'newest': {
+          return {
+            ...store,
+            accessories: store.accessories.sort((item1, item2) => {
+              return item1.age - item2.age;
+            }),
+          };
+        }
+
+        case 'oldest': {
+          return {
+            ...store,
+            accessories: store.accessories.sort((item1, item2) => {
+              return item2.age - item1.age;
             }),
           };
         }

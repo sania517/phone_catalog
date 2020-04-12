@@ -22,6 +22,7 @@ import {
   getIsInFeaturedGood,
   getPhoneById,
 } from '../../store/selectors';
+import { goodsOptions } from '../../util/enums';
 
 interface Props {
   phone: Phone | undefined;
@@ -82,7 +83,7 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
         deleteFromFeatured(phoneData.id);
       } else if (phone) {
         const newPhoneFeatured: FeaturedGood = {
-          ...phone, goodCategory: 'phone',
+          ...phone, goodCategory: goodsOptions.phone,
         };
 
         addPhoneInFutured({
@@ -110,7 +111,7 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
           setIsPhoneRequested(true);
         },
       );
-  }, [match.params.phoneId]);
+  }, [match.params.phoneId, phones.length]);
 
   return !phoneData && !isPhoneRequested && !getLoading
     ? <Loader />
@@ -413,7 +414,7 @@ const mapStateToProps = (
   return {
     phones: getPhones(state),
     getLoading: getIsError(state),
-    price: getPriceById(state, phoneId),
+    price: getPriceById(state, phoneId, goodsOptions.phone),
     isInBasket: getIsInBasketGood(state, phoneId),
     isInFeatured: getIsInFeaturedGood(state, phoneId),
     phone: getPhoneById(state, phoneId),
