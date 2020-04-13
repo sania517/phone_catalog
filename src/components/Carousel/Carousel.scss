@@ -1,0 +1,44 @@
+.carousel {
+  &__button {
+    background-color: transparent;
+    height: 32px;
+    width: 32px;
+    border: 1px solid #B4BDC4;
+    padding: 7px;
+    margin-left: 16px;
+
+    &:hover {
+      border: 1px solid #313237;
+    }
+
+    &:disabled {
+      border: 1px solid #E2E6E9;
+    }
+  }
+
+  &__prev {
+    transform: rotate(-90deg);
+  }
+
+  &__next {
+    transform: rotate(90deg);
+  }
+
+  &__buttons {
+    position: absolute;
+    right: 0;
+  }
+
+  &__screen {
+    width: 100%;
+    height: 507px;
+    margin-top: 60px;
+    overflow: hidden;
+  }
+
+  &__list {
+    list-style-type: none;
+    display: flex;
+    transition: margin-left 1s;
+  }
+}

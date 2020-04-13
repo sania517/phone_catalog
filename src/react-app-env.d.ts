@@ -174,4 +174,6 @@ interface PhoneCatalogStore {
   basket: {[id: string]: BasketItem };
   featured: {[id: string]: FeaturedGood};
   activeCategory: goodsOptions;
+  hotPricesGoods: FeaturedGood[];
+  brandNewsGoods: FeaturedGood[];
 }

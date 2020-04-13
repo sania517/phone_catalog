@@ -22,6 +22,15 @@
 * {
   box-sizing: border-box;
   font-family: Akrobat, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
 }
 
 body,

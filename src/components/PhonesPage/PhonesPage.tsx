@@ -21,31 +21,36 @@ const PhonesPage: FC<Props> = (props) => {
   const { setPhones, getLoading, phones, setActive } = props;
 
   useEffect(() => {
-    setPhones();
+    if (!phones.length) {
+      setPhones();
+    }
+
     setActive(goodsOptions.phone);
   }, []);
 
-  return (
-    <div className="phones-page__container">
-      <div className="link-chain">
-        <Link
-          to="/"
-          className="mini-link link-chain__item"
-        >
-          <img src={home} alt="home link" className="mini-link__img" />
-        </Link>
-        <p className="link-chain__item">&gt;</p>
-        <p className="link-chain__item">Phones</p>
+  return !phones.length
+    ? <Loader />
+    : (
+      <div className="phones-page__container">
+        <div className="link-chain">
+          <Link
+            to="/"
+            className="mini-link link-chain__item"
+          >
+            <img src={home} alt="home link" className="mini-link__img" />
+          </Link>
+          <p className="link-chain__item">&gt;</p>
+          <p className="link-chain__item">Phones</p>
+        </div>
+        <h1 className="phones-page__title">Mobile Phones</h1>
+        <p className="phones-page__amount">{`${phones.length} models`}</p>
+        <Filter />
+        { getLoading
+          ? <Loader />
+          : <ListGoods option={goodsOptions.phone} />
+        }
       </div>
-      <h1 className="phones-page__title">Mobile Phones</h1>
-      <p className="phones-page__amount">{`${phones.length} models`}</p>
-      <Filter />
-      { getLoading
-        ? <Loader />
-        : <ListGoods option={goodsOptions.phone} />
-      }
-    </div>
-  );
+    );
 };
 
 const dispatchMapToProps = {

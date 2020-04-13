@@ -5,6 +5,15 @@ export const getIsError = (state: PhoneCatalogStore) => state.isError;
 export const getPhones = (state: PhoneCatalogStore) => state.phones;
 export const getTablets = (state: PhoneCatalogStore) => state.tablets;
 export const getAccessories = (state: PhoneCatalogStore) => state.accessories;
+export const getAllGoods = (state: PhoneCatalogStore) => (
+  {
+    phones: state.phones,
+    tablets: state.tablets,
+    accessories: state.accessories,
+    hotPricesGoods: state.hotPricesGoods,
+    brandNewsGoods: state.brandNewsGoods,
+  }
+);
 export const getQuery = (state: PhoneCatalogStore) => state.query;
 export const getActiveCategory = (
   state: PhoneCatalogStore,

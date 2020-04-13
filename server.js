@@ -17,6 +17,13 @@ app.get('/data/hotPrices', (req, res) => {
   res.json(JSON.parse(data));
 });
 
+app.get('/data/brandNew', (req, res) => {
+  const filePath = path.join(__dirname, 'src/data/brand_new.json');
+  const data = fs.readFileSync(filePath);
+
+  res.json(JSON.parse(data));
+});
+
 app.get('/data/phones', (req, res) => {
   const filePath = path.join(__dirname, 'src/data/phones.json');
   const data = fs.readFileSync(filePath);

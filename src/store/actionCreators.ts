@@ -4,10 +4,13 @@ import {
   loadPhonesFromAPI,
   loadTabletsFromAPI,
   loadAccessoriesFromAPI,
+  loadBrandNewFromAPI,
+  loadHotPricesFromAPI,
 } from '../util/util';
 import { getActiveCategory } from './selectors';
 import { store } from './store';
 import { goodsOptions } from '../util/enums';
+import Tablet from '../components/Tablet/Tablet';
 
 export const deleteBasketItem = (payload: string) => ({
   type: ActionTypes.DELETE_ITEM_FROM_BASKET,
@@ -86,6 +89,16 @@ export const setAccessories = (payload: Accessory[]) => ({
   payload,
 });
 
+export const setHotPrices = (payload: FeaturedGood[]) => ({
+  type: ActionTypes.SET_HOT_PRICES,
+  payload,
+});
+
+export const setBrandNews = (payload: FeaturedGood[]) => ({
+  type: ActionTypes.SET_BRAND_NEWS,
+  payload,
+});
+
 export const setFilterQuery = (payload: string) => ({
   type: ActionTypes.SET_FILTER_QUERY,
   payload,
@@ -139,6 +152,41 @@ export const loadAccessories = () => {
       .then(accessories => {
         dispath(setLoading(false));
         dispath(setAccessories(accessories));
+      })
+      .catch(() => {
+        dispath(setLoading(false));
+        dispath(setError(true));
+      });
+  };
+};
+
+export const loadGoods = () => {
+  return async(dispath: Dispatch) => {
+    dispath(setError(false));
+    dispath(setLoading(true));
+
+    return Promise.all<
+      Phone[], Tablet[], Accessory[], FeaturedGood[], FeaturedGood[]
+    >([
+      loadPhonesFromAPI(),
+      loadTabletsFromAPI(),
+      loadAccessoriesFromAPI(),
+      loadHotPricesFromAPI(),
+      loadBrandNewFromAPI(),
+    ])
+      .then(([
+        phones,
+        tablets,
+        accessories,
+        hotPrices,
+        brandNews,
+      ]) => {
+        dispath(setLoading(false));
+        dispath(setPhones(phones));
+        dispath(setTablets(tablets));
+        dispath(setAccessories(accessories));
+        dispath(setHotPrices(hotPrices));
+        dispath(setBrandNews(brandNews));
       })
       .catch(() => {
         dispath(setLoading(false));

@@ -13,6 +13,8 @@ const initStore: PhoneCatalogStore = {
   basket: {},
   featured: {},
   activeCategory: goodsOptions.phone,
+  hotPricesGoods: [],
+  brandNewsGoods: [],
 };
 
 export const reducer: Reducer = (
@@ -117,6 +119,18 @@ export const reducer: Reducer = (
     case ActionTypes.SET_ACCESSORIES: {
       return {
         ...store, accessories: [...action.payload],
+      };
+    }
+
+    case ActionTypes.SET_HOT_PRICES: {
+      return {
+        ...store, hotPricesGoods: [...action.payload],
+      };
+    }
+
+    case ActionTypes.SET_BRAND_NEWS: {
+      return {
+        ...store, brandNewsGoods: [...action.payload],
       };
     }
 
