@@ -1,5 +1,7 @@
 /// <reference types="react-scripts" />
 
+// import { paginationOptions } from './util/enums';
+
 // import { goodsOptions } from "./util/enums";
 
 interface Phone {
@@ -176,4 +178,12 @@ interface PhoneCatalogStore {
   activeCategory: goodsOptions;
   hotPricesGoods: FeaturedGood[];
   brandNewsGoods: FeaturedGood[];
+  banners: Banner[];
+  pagination: paginationOptions;
+}
+
+interface Banner {
+  id: string;
+  imageUrl: string;
+  name: string;
 }

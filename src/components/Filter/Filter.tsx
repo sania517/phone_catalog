@@ -6,24 +6,33 @@ import search from '../../img/search.png';
 import {
   setFilterQuery,
   setSort,
+  setPaginationParam,
 } from '../../store/actionCreators';
-import { getQuery } from '../../store/selectors';
-import { sortOptions } from '../../util/enums';
+import { getQuery, getPaginationParam } from '../../store/selectors';
+import { sortOptions, paginationOptions } from '../../util/enums';
 
 interface Props {
   query: string;
   setQuery: (newQuery: string) => void;
   setSortOption: (option: sortOptions) => void;
+  setPagination: (payload: paginationOptions) => void;
+  pagination: paginationOptions;
 }
 
 const Filter: FC<Props> = (props) => {
-  const { query, setQuery, setSortOption } = props;
+  const { query, setQuery, setSortOption, pagination, setPagination } = props;
   const match = useRouteMatch();
 
   useEffect(() => {
     setQuery('');
     setSortOption(sortOptions.newest);
   }, [match.path]);
+
+  const onPagination = (event: React.FormEvent<HTMLSelectElement>) => {
+    const val = event.currentTarget.value as paginationOptions;
+
+    setPagination(val);
+  };
 
   return (
     <div className="filter">
@@ -60,12 +69,14 @@ const Filter: FC<Props> = (props) => {
       <label className="filter__label">
         <p>Items on page</p>
         <select
+          value={pagination}
+          onChange={onPagination}
           className="filter__select filter__select-pagination"
         >
-          <option value="16">16</option>
-          <option value="25">25</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
+          <option value={paginationOptions.l16}>16</option>
+          <option value={paginationOptions.l25}>25</option>
+          <option value={paginationOptions.l50}>50</option>
+          <option value={paginationOptions.l100}>100</option>
         </select>
       </label>
     </div>
@@ -75,10 +86,12 @@ const Filter: FC<Props> = (props) => {
 const dispatchMapToProps = {
   setQuery: setFilterQuery,
   setSortOption: setSort,
+  setPagination: setPaginationParam,
 };
 
 const mapStateToProps = (state: PhoneCatalogStore) => ({
   query: getQuery(state),
+  pagination: getPaginationParam(state),
 });
 
 export default connect(mapStateToProps, dispatchMapToProps)(Filter);

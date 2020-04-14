@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { RouteComponentProps, Link } from 'react-router-dom';
+import { RouteComponentProps, Link, useHistory } from 'react-router-dom';
 import './AccessoryDetailsPage.scss';
 import home from '../../img/home.svg';
 import { loadAccessoryFromAPI } from '../../util/util';
@@ -59,6 +59,13 @@ const AccessoryDetailsPage: FC<fullProps> = (props) => {
     accessoryData,
     setAccessoryData,
   ] = useState<AccessoryDetails | null>(null);
+
+  const history = useHistory();
+
+  const onBackClick = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    history.goBack();
+  };
 
   const [currentImg, setCurrentImg] = useState(0);
   const [isAccessoryRequested, setIsAccessoryRequested] = useState(false);
@@ -149,6 +156,7 @@ const AccessoryDetailsPage: FC<fullProps> = (props) => {
           <Link
             to="/accessories"
             className="mini-link link-chain__item"
+            onClick={onBackClick}
           >
             Back
           </Link>

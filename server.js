@@ -24,6 +24,13 @@ app.get('/data/brandNew', (req, res) => {
   res.json(JSON.parse(data));
 });
 
+app.get('/data/banners', (req, res) => {
+  const filePath = path.join(__dirname, 'src/data/banners.json');
+  const data = fs.readFileSync(filePath);
+
+  res.json(JSON.parse(data));
+});
+
 app.get('/data/phones', (req, res) => {
   const filePath = path.join(__dirname, 'src/data/phones.json');
   const data = fs.readFileSync(filePath);

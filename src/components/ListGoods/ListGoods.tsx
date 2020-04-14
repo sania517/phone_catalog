@@ -1,24 +1,20 @@
 import React, { FC } from 'react';
-import { connect } from 'react-redux';
 import './ListGoods.scss';
 import Phone from '../Phone/Phone';
 import Tablet from '../Tablet/Tablet';
 import Accessory from '../Accessory/Accessory';
-import { getFilteredGoods } from '../../store/selectors';
 import { goodsOptions } from '../../util/enums';
 
-interface OwnProps {
+interface Props {
   option: goodsOptions;
+  goodList: Phone[] | Tablet[] | Accessory[];
+
 }
 
-interface Props extends OwnProps {
-  goods: Phone[] | Tablet[] | Accessory[];
-}
-
-const ListGoods: FC<Props> = ({ goods, option }) => {
+export const ListGoods: FC<Props> = ({ option, goodList }) => {
   return (
     <ul className="goods__container">
-      {goods.map(good => {
+      {goodList.map(good => {
         if (option === goodsOptions.phone) {
           return <li key={good.id}><Phone phone={good} /></li>;
         }
@@ -36,10 +32,3 @@ const ListGoods: FC<Props> = ({ goods, option }) => {
     </ul>
   );
 };
-
-const mapStateToProps = (state: PhoneCatalogStore, ownProps: OwnProps) => ({
-
-  goods: getFilteredGoods(state, ownProps.option),
-});
-
-export default connect(mapStateToProps, {})(ListGoods);

@@ -1,24 +1,56 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './AccessoriesPage.scss';
 import { Loader } from '../Loader/Loader';
-import ListGoods from '../ListGoods/ListGoods';
+import { ListGoods } from '../ListGoods/ListGoods';
 import home from '../../img/home.svg';
 import Filter from '../Filter/Filter';
-import { getIsError, getAccessories } from '../../store/selectors';
+import {
+  getIsError,
+  getAccessories,
+  getPaginationParam,
+  getFilteredGoods,
+} from '../../store/selectors';
 import { loadAccessories, setActiveCategory } from '../../store/actionCreators';
-import { goodsOptions } from '../../util/enums';
+import { goodsOptions, paginationOptions } from '../../util/enums';
+import { Pagination } from '../Pagination/Pagination';
 
 interface Props {
   getLoading: boolean;
   accessories: Accessory[];
   setAccessories: () => void;
   setActive: (payload: goodsOptions) => void;
+  pagination: paginationOptions;
+  filteredAccessories: Accessory[];
 }
 
 const AccessoriesPage: FC<Props> = (props) => {
-  const { setAccessories, getLoading, accessories, setActive } = props;
+  const {
+    setAccessories,
+    getLoading,
+    accessories,
+    setActive,
+    pagination,
+    filteredAccessories,
+  } = props;
+
+  const [activePage, setActivePage] = useState(0);
+
+  const onClickPage = (page: number) => {
+    setActivePage(page);
+  };
+
+  const chankPhone = () => {
+    return filteredAccessories.slice(
+      activePage * (+pagination),
+      (activePage + 1) * (+pagination),
+    );
+  };
+
+  useEffect(() => {
+    setActivePage(0);
+  }, [filteredAccessories]);
 
   useEffect(() => {
     if (!accessories.length) {
@@ -49,7 +81,21 @@ const AccessoriesPage: FC<Props> = (props) => {
         <Filter />
         {getLoading
           ? <Loader />
-          : <ListGoods option={goodsOptions.accessory} />
+          : (
+            <>
+              <ListGoods
+                goodList={chankPhone()}
+                option={goodsOptions.accessory}
+              />
+              <Pagination
+                countPages={
+                  Math.ceil(filteredAccessories.length / (+pagination))
+                }
+                onClickHandler={onClickPage}
+                activePage={activePage}
+              />
+            </>
+          )
         }
       </div>
     );
@@ -63,6 +109,8 @@ const dispatchMapToProps = {
 const mapStateToProps = (state: PhoneCatalogStore) => ({
   getLoading: getIsError(state),
   accessories: getAccessories(state),
+  pagination: getPaginationParam(state),
+  filteredAccessories: getFilteredGoods(state, goodsOptions.accessory),
 });
 
 export default connect(mapStateToProps, dispatchMapToProps)(AccessoriesPage);

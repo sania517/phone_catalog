@@ -14,6 +14,11 @@ export async function loadPhonesFromAPI(): Promise<Phone[]> {
     .then(response => response.json());
 }
 
+export async function loadBannersFromAPI(): Promise<Banner[]> {
+  return fetch(`${URL_PHONES}/banners`)
+    .then(response => response.json());
+}
+
 export async function loadTabletsFromAPI(): Promise<Tablet[]> {
   return fetch(`${URL_PHONES}/tablets`)
     .then(response => response.json());

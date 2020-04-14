@@ -1,0 +1,32 @@
+[
+  {
+      "id": "phones_banner",
+      "imageUrl": "img/banners/phones_banner.jpg",
+      "name": "Phones"
+  },
+  {
+      "id": "tablets_banner",
+      "imageUrl": "img/banners/tablets_banner.jpg",
+      "name": "Tablets"
+  },
+  {
+      "id": "accessories_banner",
+      "imageUrl": "img/banners/accessories_banner.jpg",
+      "name": "Accessories"
+  },
+  {
+    "id": "phones_banner1",
+    "imageUrl": "img/banners/phones_banner.jpg",
+    "name": "Phones"
+},
+{
+    "id": "tablets_banner2",
+    "imageUrl": "img/banners/tablets_banner.jpg",
+    "name": "Tablets"
+},
+{
+    "id": "accessories_banner3",
+    "imageUrl": "img/banners/accessories_banner.jpg",
+    "name": "Accessories"
+}
+]

@@ -1,0 +1,78 @@
+.banner {
+  &__contents {
+    display: flex;
+  }
+
+  &__images-wrapper {
+    margin: 0 16px;
+    display: flex;
+    overflow: hidden;
+    height: 400px;
+    width: 1040px;
+  }
+
+  &__list {
+    list-style-type: none;
+    display: flex;
+    transition: margin-left 1s;
+  }
+
+  &__img-wrapper {
+    height: 100%;
+    width: 1040px;
+    flex-shrink: 0;
+  }
+
+  &__button {
+    width: 32px;
+    background-color: transparent;
+    border: 1px solid #B4BDC4;
+    flex-shrink: 0;
+
+    &:hover {
+      border: 1px solid #313237;
+    }
+
+    &:disabled {
+      border: 1px solid #E2E6E9;
+    }
+  }
+
+  &__point {
+    height: 4px;
+    width: 14px;
+    background-color: #E2E6E9;
+    cursor: pointer;
+    margin: 0 7px;
+  }
+
+  &__point--active {
+    height: 4px;
+    width: 14px;
+    background-color: #313237;
+    cursor: pointer;
+    margin: 0 7px;
+  }
+
+  &__points {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 18px auto 0;
+  }
+
+  &__img {
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+
+  }
+
+  &__button-prev {
+    transform: rotate(-90deg);
+  }
+
+  &__button-next {
+    transform: rotate(90deg);
+  }
+}

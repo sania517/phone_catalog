@@ -1,7 +1,7 @@
 import { createStore, AnyAction, Reducer, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { ActionTypes } from './ActionTypes';
-import { goodsOptions } from '../util/enums';
+import { goodsOptions, paginationOptions } from '../util/enums';
 
 const initStore: PhoneCatalogStore = {
   accessories: [],
@@ -15,6 +15,8 @@ const initStore: PhoneCatalogStore = {
   activeCategory: goodsOptions.phone,
   hotPricesGoods: [],
   brandNewsGoods: [],
+  banners: [],
+  pagination: paginationOptions.l16,
 };
 
 export const reducer: Reducer = (
@@ -101,6 +103,18 @@ export const reducer: Reducer = (
     case ActionTypes.SET_LOADING: {
       return {
         ...store, isLoading: action.payload,
+      };
+    }
+
+    case ActionTypes.SET_PAGINATION_PARAM: {
+      return {
+        ...store, pagination: action.payload,
+      };
+    }
+
+    case ActionTypes.SET_BANNERS: {
+      return {
+        ...store, banners: [...action.payload],
       };
     }
 

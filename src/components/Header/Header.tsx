@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCountAllGoodsInBasket, getFeatured } from '../../store/selectors';
 import logoPath from '../../img/logo_lol.png';
@@ -17,12 +17,19 @@ interface Props {
 const Header: FC<Props> = ({ basketCountGoods, featuredGoods }) => {
   const feateredCount = featuredGoods.length;
 
+  const visibility = useHistory().location.pathname.search(/basket/) > -1
+    ? 'hidden'
+    : 'visible';
+
   return (
     <header className="header">
       <Link to="/" className="header__logo">
         <img src={logoPath} alt="Logo" />
       </Link>
-      <nav className="header__main-nav">
+      <nav
+        className="header__main-nav"
+        style={{ visibility }}
+      >
         <ul className="header__nav-list">
           <li className="header__nav-item">
             <NavLink
@@ -64,7 +71,7 @@ const Header: FC<Props> = ({ basketCountGoods, featuredGoods }) => {
         </ul>
       </nav>
       <div className="header__second-nav second-nav">
-        <label className="second-nav__search">
+        <label className="second-nav__search" style={{ visibility }}>
           <input
             type="text"
             className="second-nav__input"
@@ -77,6 +84,7 @@ const Header: FC<Props> = ({ basketCountGoods, featuredGoods }) => {
           className="second-nav__heart-link"
           activeClassName="second-nav__heart-link--active"
           exact
+          style={{ visibility }}
         >
           <img src={heart} alt="heart" className="second-nav__link-img" />
           {

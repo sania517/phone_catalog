@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { RouteComponentProps, Link } from 'react-router-dom';
+import { RouteComponentProps, Link, useHistory } from 'react-router-dom';
 import './PhoneDetailsPage.scss';
 import home from '../../img/home.svg';
 import { loadPhoneFromAPI } from '../../util/util';
@@ -57,6 +57,12 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
   const [phoneData, setPhoneData] = useState<PhoneDetails | null>(null);
   const [currentImg, setCurrentImg] = useState(0);
   const [isPhoneRequested, setIsPhoneRequested] = useState(false);
+  const history = useHistory();
+
+  const onBackClick = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    history.goBack();
+  };
 
   const onAddButton = () => {
     if (phoneData) {
@@ -144,6 +150,7 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
           <Link
             to="/phones"
             className="mini-link link-chain__item"
+            onClick={onBackClick}
           >
             Back
           </Link>

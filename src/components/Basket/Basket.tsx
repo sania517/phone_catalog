@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './Basket.scss';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import BasketItemList from '../BasketItemList/BasketItemList';
 import {
@@ -14,16 +14,24 @@ interface Props {
 }
 
 const Basket: FC<Props> = (props) => {
+  const history = useHistory();
+
+  const onBackClick = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    history.goBack();
+  };
+
   return (
     <div className="basket">
       <div className="link-chain link-chain--min">
         <p className="link-chain__item">&lt;</p>
-        <Link
-          to="/"
+        <a
+          href="/"
           className="mini-link link-chain__item"
+          onClick={onBackClick}
         >
           Back
-        </Link>
+        </a>
       </div>
       <h1 className="basket__title">Cart</h1>
       <div className="basket__main-container">

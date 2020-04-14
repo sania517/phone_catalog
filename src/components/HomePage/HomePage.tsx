@@ -10,6 +10,7 @@ import { getAllGoods } from '../../store/selectors';
 import { loadGoods } from '../../store/actionCreators';
 import { Loader } from '../Loader/Loader';
 import { Carousel } from '../Carousel/Carousel';
+import { Banner } from '../Banner/Banner';
 
 interface Props {
   allGoods: {
@@ -18,6 +19,7 @@ interface Props {
     accessories: Accessory[];
     hotPricesGoods: FeaturedGood[];
     brandNewsGoods: FeaturedGood[];
+    banners: Banner[];
   };
   loadAllGoods: () => void;
 }
@@ -29,6 +31,7 @@ const HomePage: FC<Props> = ({ allGoods, loadAllGoods }) => {
     accessories,
     hotPricesGoods,
     brandNewsGoods,
+    banners,
   } = allGoods;
 
   useEffect(() => {
@@ -41,6 +44,9 @@ const HomePage: FC<Props> = ({ allGoods, loadAllGoods }) => {
     ? <Loader />
     : (
       <div className="home">
+        <div className="home__banner">
+          <Banner banners={banners} />
+        </div>
         <div className="home__hot-prices">
           <h2 className="home__hot-prices-title">Hot prices</h2>
           <div className="home__hot-prices-carousel">

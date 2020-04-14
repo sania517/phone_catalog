@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { RouteComponentProps, Link } from 'react-router-dom';
+import { RouteComponentProps, Link, useHistory } from 'react-router-dom';
 import './TabletDetailsPage.scss';
 import home from '../../img/home.svg';
 import { loadTabletFromAPI } from '../../util/util';
@@ -57,6 +57,12 @@ const TabletDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
   const [tabletData, setTabletData] = useState<TabletDetails | null>(null);
   const [currentImg, setCurrentImg] = useState(0);
   const [isTabletRequested, setIsTabletRequested] = useState(false);
+  const history = useHistory();
+
+  const onBackClick = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    history.goBack();
+  };
 
   const onAddButton = () => {
     if (tabletData) {
@@ -144,6 +150,7 @@ const TabletDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
           <Link
             to="/tablets"
             className="mini-link link-chain__item"
+            onClick={onBackClick}
           >
             Back
           </Link>

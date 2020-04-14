@@ -6,10 +6,11 @@ import {
   loadAccessoriesFromAPI,
   loadBrandNewFromAPI,
   loadHotPricesFromAPI,
+  loadBannersFromAPI,
 } from '../util/util';
 import { getActiveCategory } from './selectors';
 import { store } from './store';
-import { goodsOptions } from '../util/enums';
+import { goodsOptions, paginationOptions } from '../util/enums';
 import Tablet from '../components/Tablet/Tablet';
 
 export const deleteBasketItem = (payload: string) => ({
@@ -58,6 +59,10 @@ export const setSort = (payload: sortOptions) => {
       type = ActionTypes.SET_SORT_TABLETS;
       break;
     }
+
+    default: {
+      break;
+    }
   }
 
   return {
@@ -69,6 +74,12 @@ export const setError = (payload: boolean) => ({
   type: ActionTypes.SET_ERROR,
   payload,
 });
+
+export const setPaginationParam = (payload: paginationOptions) => ({
+  type: ActionTypes.SET_PAGINATION_PARAM,
+  payload,
+});
+
 export const setLoading = (payload: boolean) => ({
   type: ActionTypes.SET_LOADING,
   payload,
@@ -96,6 +107,11 @@ export const setHotPrices = (payload: FeaturedGood[]) => ({
 
 export const setBrandNews = (payload: FeaturedGood[]) => ({
   type: ActionTypes.SET_BRAND_NEWS,
+  payload,
+});
+
+export const setBanners = (payload: Banner[]) => ({
+  type: ActionTypes.SET_BANNERS,
   payload,
 });
 
@@ -166,13 +182,19 @@ export const loadGoods = () => {
     dispath(setLoading(true));
 
     return Promise.all<
-      Phone[], Tablet[], Accessory[], FeaturedGood[], FeaturedGood[]
+      Phone[],
+      Tablet[],
+      Accessory[],
+      FeaturedGood[],
+      FeaturedGood[],
+      Banner[]
     >([
       loadPhonesFromAPI(),
       loadTabletsFromAPI(),
       loadAccessoriesFromAPI(),
       loadHotPricesFromAPI(),
       loadBrandNewFromAPI(),
+      loadBannersFromAPI(),
     ])
       .then(([
         phones,
@@ -180,6 +202,7 @@ export const loadGoods = () => {
         accessories,
         hotPrices,
         brandNews,
+        banners,
       ]) => {
         dispath(setLoading(false));
         dispath(setPhones(phones));
@@ -187,6 +210,7 @@ export const loadGoods = () => {
         dispath(setAccessories(accessories));
         dispath(setHotPrices(hotPrices));
         dispath(setBrandNews(brandNews));
+        dispath(setBanners(banners));
       })
       .catch(() => {
         dispath(setLoading(false));

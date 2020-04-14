@@ -5,6 +5,9 @@ export const getIsError = (state: PhoneCatalogStore) => state.isError;
 export const getPhones = (state: PhoneCatalogStore) => state.phones;
 export const getTablets = (state: PhoneCatalogStore) => state.tablets;
 export const getAccessories = (state: PhoneCatalogStore) => state.accessories;
+export const getPaginationParam = (state: PhoneCatalogStore) => (
+  state.pagination
+);
 export const getAllGoods = (state: PhoneCatalogStore) => (
   {
     phones: state.phones,
@@ -12,6 +15,7 @@ export const getAllGoods = (state: PhoneCatalogStore) => (
     accessories: state.accessories,
     hotPricesGoods: state.hotPricesGoods,
     brandNewsGoods: state.brandNewsGoods,
+    banners: state.banners,
   }
 );
 export const getQuery = (state: PhoneCatalogStore) => state.query;
