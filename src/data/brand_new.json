@@ -1,15 +1,16 @@
 [
   {
-    "age": 19,
-    "id": "tablet_apple_iphone_xs_max_64gb_gold",
-    "imageUrl": "img/phones/IPhone_Xs_max/apple_iphone_xs_max_gold.00.jpg",
-    "name": "tablet Apple IPhone Xs Max 64Gb Gold",
-    "ram": "4Gb",
+    "age": 18,
+    "id": "apple_ipad_air_cell_64gb_gold",
+    "imageUrl": "img/tablets/IPad_Air/ipad_air_gold.0.jpg",
+    "name": "Apple IPad Air Wi-Fi + Cellular 64Gb Gold",
+    "ram": "3Gb",
     "flash": "64Gb",
-    "regularPrice": 23999,
+    "regularPrice": 629,
     "discount": 2,
-    "screenSize": "6.5",
-    "screenType": "OLED",
+    "screenSize": "10.5",
+    "screenType": "IPS",
+    "cellOption": "Wi-Fi+Cellular",
     "goodCategory": "tablet"
   },
   {
@@ -39,16 +40,17 @@
     "goodCategory": "accessory"
   },
   {
-    "age": 19,
-    "id": "tablet_apple_iphone_xs_128gb_gold",
-    "imageUrl": "img/phones/IPhone_Xs/apple_iphone_xs_gold.00.jpg",
-    "name": "tablet Apple IPhone Xs 128Gb Gold",
-    "ram": "4Gb",
-    "flash": "128Gb",
-    "regularPrice": 19499,
-    "discount": 7,
-    "screenSize": "5.8",
-    "screenType": "OLED",
+    "age": 18,
+    "id": "apple_ipad_air_cell_64gb_silver",
+    "imageUrl": "img/tablets/IPad_Air/ipad_air_silver.0.jpg",
+    "name": "Apple IPad Air Wi-Fi + Cellular 64Gb Silver",
+    "ram": "3Gb",
+    "flash": "64Gb",
+    "regularPrice": 629,
+    "discount": 2,
+    "screenSize": "10.5",
+    "screenType": "IPS",
+    "cellOption": "Wi-Fi+Cellular",
     "goodCategory": "tablet"
   },
   {

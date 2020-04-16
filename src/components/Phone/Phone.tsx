@@ -81,8 +81,8 @@ const Phone: FC<Props> = (props) => {
       <Link to={`/phones/${id}`} className="phone__img-container">
         <img src={imageUrl} alt="phone" className="phone__img" />
       </Link>
-      <Link to={`/phones/${id}`} className="phone__title">
-        {name}
+      <Link to={`/phones/${id}`} className="phone__title-link">
+        <p className="phone__title">{name}</p>
       </Link>
       <div className="phone__price">
         <h2 className="phone__discount">
@@ -124,14 +124,19 @@ const Phone: FC<Props> = (props) => {
         >
           {isInBasket ? 'Added to cart' : 'Add to cart'}
         </button>
-        <button type="button" onClick={onFeaturedHandler}>
+        <button
+          type="button"
+          onClick={onFeaturedHandler}
+          className="phone__favorite-button"
+        >
           <img
-            src={isInFeatured
-              ? heartLike
-              : heart
+            src={
+              isInFeatured
+                ? heartLike
+                : heart
             }
             alt="favorite button"
-            className="phone__favorite-button"
+            className="phone__favorite-button-img"
           />
         </button>
       </div>

@@ -259,6 +259,34 @@ const TabletDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
                     </ul>
                   </div>
                   <hr />
+                  <div className="cell-container">
+                    <p className="cell-container__title">Cellular option</p>
+                    <ul className="cell-container__list">
+                      {tabletData.availableCellOptions.map(item => (
+                        <li
+                          key={item}
+                          className={`cell-container__item${
+                            tabletData.cellOption === item
+                              ? ' cell-container__item--active'
+                              : ''}`}
+                        >
+                          <Link
+                            to={`/tablets/${match.params.tabletId
+                              .replace(/cell|wi-fi/gi, `${item}`
+                                .toLowerCase())}`
+                            }
+                            className={`cell-container__link${
+                              tabletData.cellOption === item
+                                ? ' cell-container__link--active'
+                                : ''}`}
+                          >
+                            {item === 'wi-fi' ? item : 'wi-fi + cellular'}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <hr />
                   <div className="tablet-details__price-container">
                     {price[1]
                       ? (

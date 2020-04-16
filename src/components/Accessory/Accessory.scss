@@ -11,7 +11,7 @@
   &__img-container {
     height: 208px;
     width: 208px;
-    margin-bottom: 24px;
+    margin-bottom: 4px;
     display: block;
   }
 
@@ -21,14 +21,22 @@
     object-fit: contain;
   }
 
-  &__title {
+  &__title-link {
+    height: 40px;
     display: block;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 21px;
-    color: #89939a;
     margin-bottom: 6.5px;
     text-decoration: none;
+    position: relative;
+  }
+
+  &__title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #89939a;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
   }
 
   &__title:hover {
@@ -104,7 +112,11 @@
     box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.26);
   }
 
-  &__favorite-button {
+  &__favorite-button-img {
+    height: 100%;
+  }
+
+  &__favorite-button-img {
     width: 40px;
     height: 100%;
     padding: 11px;

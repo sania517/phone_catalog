@@ -1,25 +1,43 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { NavLink, Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getCountAllGoodsInBasket, getFeatured } from '../../store/selectors';
+import {
+  getCountAllGoodsInBasket,
+  getFeatured,
+  getQuery,
+} from '../../store/selectors';
 import logoPath from '../../img/logo_lol.png';
 import search from '../../img/search.png';
 import heart from '../../img/heart.png';
 import shoppingBag from '../../img/shopping_bag.svg';
 import './Header.scss';
 import './second-nav.scss';
+import { setFilterQuery } from '../../store/actionCreators';
 
 interface Props {
   basketCountGoods: number;
-  featuredGoods: [string, Phone][];
+  featuredGoods: FeaturedGood[];
+  query: string;
+  setQuery: (newQuery: string) => void;
 }
 
-const Header: FC<Props> = ({ basketCountGoods, featuredGoods }) => {
-  const feateredCount = featuredGoods.length;
+const Header: FC<Props> = (props) => {
+  const {
+    basketCountGoods,
+    featuredGoods,
+    query,
+    setQuery,
+  } = props;
 
-  const visibility = useHistory().location.pathname.search(/basket/) > -1
+  const currentUrl = useHistory().location.pathname;
+  const feateredCount = featuredGoods.length;
+  const visibility = currentUrl.search(/basket/) > -1
     ? 'hidden'
     : 'visible';
+
+  useEffect(() => {
+    setQuery('');
+  }, [currentUrl]);
 
   return (
     <header className="header">
@@ -76,6 +94,10 @@ const Header: FC<Props> = ({ basketCountGoods, featuredGoods }) => {
             type="text"
             className="second-nav__input"
             placeholder="Search"
+            value={query}
+            onChange={(event) => {
+              setQuery(event.target.value);
+            }}
           />
           <img src={search} alt="search" className="second-nav__search-img" />
         </label>
@@ -120,11 +142,12 @@ const Header: FC<Props> = ({ basketCountGoods, featuredGoods }) => {
 };
 
 const dispatchMapToProps = {
-  // setPhones: loadPhones,
+  setQuery: setFilterQuery,
 };
 
 const mapStateToProps = (state: PhoneCatalogStore) => ({
   basketCountGoods: getCountAllGoodsInBasket(state),
+  query: getQuery(state),
   featuredGoods: getFeatured(state),
 });
 

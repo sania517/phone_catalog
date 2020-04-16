@@ -4,27 +4,27 @@ import './FeaturedList.scss';
 import Phone from '../Phone/Phone';
 import Tablet from '../Tablet/Tablet';
 import Accessory from '../Accessory/Accessory';
-import { getFeatured } from '../../store/selectors';
+import { getFilteredFeatured } from '../../store/selectors';
 import { goodsOptions } from '../../util/enums';
 
 interface Props {
-  goods: [string, FeaturedGood][];
+  goods: FeaturedGood[];
 }
 
 export const FeaturedList: FC<Props> = ({ goods }) => {
   return (
     <ul className="featured__container">
       {goods.map(good => {
-        if (good[1].goodCategory === goodsOptions.phone) {
-          return <li key={good[0]}><Phone phone={good[1]} /></li>;
+        if (good.goodCategory === goodsOptions.phone) {
+          return <li key={good.id}><Phone phone={good} /></li>;
         }
 
-        if (good[1].goodCategory === goodsOptions.tablet) {
-          return <li key={good[0]}><Tablet tablet={good[1]} /></li>;
+        if (good.goodCategory === goodsOptions.tablet) {
+          return <li key={good.id}><Tablet tablet={good} /></li>;
         }
 
-        if (good[1].goodCategory === goodsOptions.accessory) {
-          return <li key={good[0]}><Accessory accessory={good[1]} /></li>;
+        if (good.goodCategory === goodsOptions.accessory) {
+          return <li key={good.id}><Accessory accessory={good} /></li>;
         }
 
         return '';
@@ -34,7 +34,7 @@ export const FeaturedList: FC<Props> = ({ goods }) => {
 };
 
 const mapStateToProps = (state: PhoneCatalogStore) => ({
-  goods: getFeatured(state),
+  goods: getFilteredFeatured(state),
 });
 
 export default connect(mapStateToProps, {})(FeaturedList);

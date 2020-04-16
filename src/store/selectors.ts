@@ -28,24 +28,34 @@ export const getBasket = (state: PhoneCatalogStore) => (
 );
 
 export const getFeatured = (state: PhoneCatalogStore) => (
-  Object.entries(state.featured)
+  Object.values(state.featured)
 );
+
+export const getFilteredFeatured = (state: PhoneCatalogStore) => {
+  const featuredGoods = Object.values(state.featured);
+  const pattern = new RegExp(state.query, 'gim');
+
+  return featuredGoods.filter(item => (
+    item.name.search(pattern) >= 0
+  ));
+};
 
 export const getIsInBasketGood = (
-  state: PhoneCatalogStore, id: string,
-): boolean => (state.basket.hasOwnProperty(id));
+  state: PhoneCatalogStore,
+  id: string,
+): boolean => Object.prototype.hasOwnProperty.call(state.basket, id);
 
 export const getIsInFeaturedGood = (
-  state: PhoneCatalogStore, id: string,
-): boolean => (
-  state.featured.hasOwnProperty(id)
-);
+  state: PhoneCatalogStore,
+  id: string,
+): boolean => Object.prototype.hasOwnProperty.call(state.featured, id);
 
 export const getFilteredGoods = (
   state: PhoneCatalogStore,
   option: goodsOptions,
 ) => {
   let goods;
+  const pattern = new RegExp(state.query, 'gim');
 
   switch (option) {
     case goodsOptions.phone: {
@@ -62,36 +72,28 @@ export const getFilteredGoods = (
       goods = state.accessories;
       break;
     }
+
+    default: {
+      goods = [] as Phone[];
+    }
   }
 
-  return goods.filter(item => {
-    const pattern = new RegExp(state.query, 'gim');
-
-    return item.name.search(pattern) >= 0;
-  });
+  return goods.filter(item => (
+    item.name.search(pattern) >= 0
+  ));
 };
 
-export const getSumFromBasket = (state: PhoneCatalogStore) => {
-  let sum = 0;
+export const getSumFromBasket = (state: PhoneCatalogStore) => (
+  Object.values(state.basket).reduce((acc, item) => {
+    return acc + item.quantity * item.priceWithDiscount;
+  }, 0)
+);
 
-  for (const key of Object.keys(state.basket)) {
-    const { priceWithDiscount, quantity } = state.basket[key];
-
-    sum += priceWithDiscount * quantity;
-  }
-
-  return sum;
-};
-
-export const getCountAllGoodsInBasket = (state: PhoneCatalogStore) => {
-  let sum = 0;
-
-  for (const key of Object.keys(state.basket)) {
-    sum += state.basket[key].quantity;
-  }
-
-  return sum;
-};
+export const getCountAllGoodsInBasket = (state: PhoneCatalogStore) => (
+  Object.values(state.basket).reduce((acc, item) => {
+    return acc + item.quantity;
+  }, 0)
+);
 
 export const getPriceById = (
   state: PhoneCatalogStore,

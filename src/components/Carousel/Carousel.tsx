@@ -54,7 +54,7 @@ export const Carousel: FC<Props> = ({ goods }) => {
             }
 
             if (good.goodCategory === goodsOptions.tablet) {
-              return <li key={good.id}><Tablet tablet={good} /></li>;
+              return <li key={good.id}><Tablet tablet={good as Tablet} /></li>;
             }
 
             if (good.goodCategory === goodsOptions.accessory) {

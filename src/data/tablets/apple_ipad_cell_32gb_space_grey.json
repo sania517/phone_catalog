@@ -1,0 +1,66 @@
+{
+   "os": {
+      "version": "10.0",
+      "ui": "iOS"
+  },
+  "battery": {
+      "standbyTime": "420 hours",
+      "talkTime": "7 hours",
+      "type": "Lithium Ion (Li-Ion) (3300 mAH)"
+  },
+  "camera": {
+      "features": [
+          "Flash",
+          "Video"
+      ],
+      "primary": "8Mpx",
+      "front": "1.2Mpx",
+      "zoom": "digital 5x"
+  },
+  "connectivity": {
+      "bluetooth": "Bluetooth 5.0",
+      "cell": "GSM, LTE, UMTS",
+      "gps": true,
+      "infrared": false,
+      "wifi": "802.11 b/g/n"
+  },
+  "display": {
+      "screenResolution": "2160x1620",
+      "screenSize": "10.2 inches",
+      "typeScreen": "IPS"
+  },
+  "id": "apple_ipad_cell_32gb_space_grey",
+  "images": [
+      "img/tablets/IPad/apple_ipad_space_grey.0.jpg",
+      "img/tablets/IPad/apple_ipad_space_grey.1.jpg",
+      "img/tablets/IPad/apple_ipad_space_grey.2.jpg",
+      "img/tablets/IPad/apple_ipad_space_grey.3.jpg"
+  ],
+  "name": "Apple IPad Air Wi-Fi + Cellular 32Gb Space Grey",
+  "storage": {
+      "flash": "32Gb",
+      "ram": "3GB",
+      "availableFlash": [
+          "32Gb",
+          "128Gb"
+      ]
+  },
+  "processor": "Apple A10",
+    "description": [
+       { "title": "Like a computer. Unlike any computer.", "text": "The new iPad combines the power and capability of a computer with the ease of use and versatility you’d never expect from one. And now it’s even more versatile, with a larger 10.2‑inch Retina display, support for the full-size Smart Keyboard, and the amazing new capabilities of iPadOS. It’s unbelievably fun. And unmistakably iPad."},
+       { "title": "Kick some serious tasks.", "text": "With iPad, getting work done is all hustle and no hassle. You can easily edit a document while researching something on the web and making a FaceTime call to a colleague at the same time. Manage all your files in one convenient spot with the Files app and attach a full‑size Smart Keyboard for comfortable typing.1 And for tasks that require more precision, support for a trackpad or mouse complements the familiar Multi‑Touch experience of iPad."},
+       { "title": "Jot til tou drop", "text":  "From taking notes in class to writing out a quick to-do list, using Apple Pencil with iPad is the best way to get what’s in your brain down on the page.1 Do things like sign paperwork, mark up a document, or sketch out an idea. It feels as natural to use as a pencil, but with so much more capability."}
+  ],
+  "color": "space_grey",
+  "colorHash": "#4B4B4C",
+  "avalibleColors": [
+      {"title": "gold", "value": "#FFDF00"},
+      {"title": "silver", "value": "#C0C0C0"},
+      {"title": "space_grey", "value": "#4B4B4C"}
+  ],
+  "cellOption": "cell",
+  "availableCellOptions": [
+        "wi-fi",
+        "cell"
+    ]
+}

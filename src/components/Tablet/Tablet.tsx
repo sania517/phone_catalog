@@ -82,8 +82,8 @@ const Tablet: FC<Props> = (props) => {
       <Link to={`/tablets/${id}`} className="tablet__img-container">
         <img src={imageUrl} alt="tablet" className="tablet__img" />
       </Link>
-      <Link to={`/tablets/${id}`} className="tablet__title">
-        {name}
+      <Link to={`/tablets/${id}`} className="tablet__title-link">
+        <p className="tablet__title">{name}</p>
       </Link>
       <div className="tablet__price">
         <h2 className="tablet__discount">
@@ -125,14 +125,18 @@ const Tablet: FC<Props> = (props) => {
         >
           {isInBasket ? 'Added to cart' : 'Add to cart'}
         </button>
-        <button type="button" onClick={onFeaturedHandler}>
+        <button
+          type="button"
+          onClick={onFeaturedHandler}
+          className="tablet__favorite-button"
+        >
           <img
             src={isInFeatured
               ? heartLike
               : heart
             }
             alt="favorite button"
-            className="tablet__favorite-button"
+            className="tablet__favorite-button-img"
           />
         </button>
       </div>

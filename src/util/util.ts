@@ -1,6 +1,6 @@
 // const URL_PHONES = 'http://localhost:11111/data';
-// const URL_PHONES = process.env.REACT_APP_URL_PHONES;
-const URL_PHONES = '/data';
+const URL_PHONES = process.env.REACT_APP_URL_PHONES;
+// const URL_PHONES = '/data';
 
 export const loadDataFromApi = async <T>(url: string): Promise<T> => {
   const response = await fetch(`${URL_PHONES}/${url}`);

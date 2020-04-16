@@ -15,19 +15,19 @@ export const Footer: FC = () => (
     <nav className="footer__contacts-nav">
       <a
         className="footer__contacts-link"
-        href="http://http://github.com/sania517/phone_catalog"
+        href="https://github.com/sania517/phone_catalog"
       >
         Github
       </a>
       <a
         className="footer__contacts-link"
-        href="http://http://github.com/sania517/phone_catalog"
+        href="https://github.com/sania517/phone_catalog"
       >
         Contacts
       </a>
       <a
         className="footer__contacts-link"
-        href="http://http://github.com/sania517/phone_catalog"
+        href="https://github.com/sania517/phone_catalog"
       >
         rights
       </a>

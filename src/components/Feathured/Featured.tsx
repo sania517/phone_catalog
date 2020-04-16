@@ -7,7 +7,7 @@ import FeaturedList from '../FeaturedList/FeaturedList';
 import { getFeatured } from '../../store/selectors';
 
 interface Props {
-  goods: [string, Phone][];
+  goods: FeaturedGood[];
 }
 
 const Featured: FC<Props> = ({ goods }) => {

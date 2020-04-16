@@ -1,9 +1,5 @@
 /// <reference types="react-scripts" />
 
-// import { paginationOptions } from './util/enums';
-
-// import { goodsOptions } from "./util/enums";
-
 interface Phone {
   age: number;
   carrier?: string;
@@ -17,6 +13,7 @@ interface Phone {
   screenType?: string;
   regularPrice: number;
   discount?: number;
+  cellOption?: string;
 }
 
 type FeaturedGood = PhoneFeathured | TabletFeathured | AccessoryFeathured
@@ -38,6 +35,7 @@ interface Tablet {
   screenType?: string;
   regularPrice: number;
   discount?: number;
+  cellOption?: string;
 }
 
 interface TabletFeathured extends Tablet {
@@ -57,6 +55,7 @@ interface Accessory {
   screenType?: string;
   regularPrice: number;
   discount?: number;
+  cellOption?: string;
 }
 
 interface AccessoryFeathured extends Accessory {
@@ -119,6 +118,8 @@ interface TabletDetails {
   color: string;
   colorHash: string;
   avalibleColors: Array<{title: string; value: string}>;
+  cellOption: string;
+  availableCellOptions: string[];
 }
 
 interface AccessoryDetails {

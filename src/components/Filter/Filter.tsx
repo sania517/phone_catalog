@@ -1,18 +1,15 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { connect } from 'react-redux';
-import { useRouteMatch } from 'react-router-dom';
 import './Filter.scss';
-import search from '../../img/search.png';
 import {
   setFilterQuery,
   setSort,
   setPaginationParam,
 } from '../../store/actionCreators';
-import { getQuery, getPaginationParam } from '../../store/selectors';
+import { getPaginationParam } from '../../store/selectors';
 import { sortOptions, paginationOptions } from '../../util/enums';
 
 interface Props {
-  query: string;
   setQuery: (newQuery: string) => void;
   setSortOption: (option: sortOptions) => void;
   setPagination: (payload: paginationOptions) => void;
@@ -20,13 +17,7 @@ interface Props {
 }
 
 const Filter: FC<Props> = (props) => {
-  const { query, setQuery, setSortOption, pagination, setPagination } = props;
-  const match = useRouteMatch();
-
-  useEffect(() => {
-    setQuery('');
-    setSortOption(sortOptions.newest);
-  }, [match.path]);
+  const { setSortOption, pagination, setPagination } = props;
 
   const onPagination = (event: React.FormEvent<HTMLSelectElement>) => {
     const val = event.currentTarget.value as paginationOptions;
@@ -36,19 +27,6 @@ const Filter: FC<Props> = (props) => {
 
   return (
     <div className="filter">
-      <label className="filter__label">
-        <p>Search</p>
-        <img className="filter__search-img" src={search} alt="" />
-        <input
-          value={query}
-          type="text"
-          className="filter__input"
-          placeholder="search"
-          onChange={(event) => {
-            setQuery(event.target.value);
-          }}
-        />
-      </label>
       <label className="filter__label">
         <p>Sort by</p>
         <select
@@ -90,7 +68,6 @@ const dispatchMapToProps = {
 };
 
 const mapStateToProps = (state: PhoneCatalogStore) => ({
-  query: getQuery(state),
   pagination: getPaginationParam(state),
 });
 

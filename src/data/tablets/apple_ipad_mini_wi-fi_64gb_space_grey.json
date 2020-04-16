@@ -1,0 +1,66 @@
+{
+   "os": {
+      "version": "10.0",
+      "ui": "iOS"
+  },
+  "battery": {
+      "standbyTime": "420 hours",
+      "talkTime": "7 hours",
+      "type": "Lithium Ion (Li-Ion) (3300 mAH)"
+  },
+  "camera": {
+      "features": [
+          "Flash",
+          "Video"
+      ],
+      "primary": "8Mpx",
+      "front": "7Mpx",
+      "zoom": "digital 5x"
+  },
+  "connectivity": {
+      "bluetooth": "Bluetooth 5.0",
+      "cell": "none",
+      "gps": true,
+      "infrared": false,
+      "wifi": "802.11 b/g/n"
+  },
+  "display": {
+      "screenResolution": "2048x1436",
+      "screenSize": "7.9 inches",
+      "typeScreen": "Retina"
+  },
+  "id": "apple_ipad_mini_wi-fi_64gb_space_grey",
+  "images": [
+      "img/tablets/IPad_mini/ipad_mini_space_grey.0.jpg",
+      "img/tablets/IPad_mini/ipad_mini_space_grey.1.jpg",
+      "img/tablets/IPad_mini/ipad_mini_space_grey.2.jpg",
+      "img/tablets/IPad_mini/ipad_mini_space_grey.3.jpg"
+  ],
+  "name": "Apple IPad Mini Wi-Fi 64Gb Space Grey",
+  "storage": {
+      "flash": "64Gb",
+      "ram": "3GB",
+      "availableFlash": [
+          "64Gb",
+          "256Gb"
+      ]
+  },
+  "processor": "Apple A12",
+    "description": [
+       { "title": "Performance.Power beyond its size.", "text": "The A12 Bionic chip with Neural Engine enables a remarkable level of power and intelligence. It uses real-time machine learning to recognize patterns, make predictions, and learn from experience. With all this power, you can run apps like Adobe Photoshop CC,* experience augmented reality, or play an immersive game with console-level graphics."},
+       { "title": "Design. Compact. Portable. Pocketable.", "text": "iPad mini features a thin, light, and portable design that makes it the perfect on-the-go companion. At 0.66 pound and 6.1 mm thin,1 it’s easy to carry with you in one hand or take out of a pocket or bag whenever inspiration strikes."},
+       { "title": "Stay in touch. Shoot in HD. Play in AR.", "text":  "The front and back cameras in iPad mini let you take vivid photos and cinematic videos. But the fun doesn’t stop there. Make FaceTime calls with friends, scan documents and mark them up, or even use augmented reality to plan out your living room decor."}
+  ],
+  "color": "space_grey",
+  "colorHash": "#4B4B4C",
+  "avalibleColors": [
+      {"title": "gold", "value": "#FFDF00"},
+      {"title": "silver", "value": "#C0C0C0"},
+      {"title": "space_grey", "value": "#4B4B4C"}
+  ],
+  "cellOption": "wi-fi",
+  "availableCellOptions": [
+        "wi-fi",
+        "cell"
+    ]
+}

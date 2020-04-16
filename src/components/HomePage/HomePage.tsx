@@ -79,7 +79,7 @@ const HomePage: FC<Props> = ({ allGoods, loadAllGoods }) => {
                   alt="phones link"
                 />
               </Link>
-              <Link to="/phones" className="home__categories-text">
+              <Link to="/tablets" className="home__categories-text">
                 Tablets
               </Link>
               <p className="home__categories-count">
@@ -94,7 +94,7 @@ const HomePage: FC<Props> = ({ allGoods, loadAllGoods }) => {
                   alt="phones link"
                 />
               </Link>
-              <Link to="/phones" className="home__categories-text">
+              <Link to="/accessories" className="home__categories-text">
                 Accessories
               </Link>
               <p className="home__categories-count">

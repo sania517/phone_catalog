@@ -1,0 +1,68 @@
+{
+   "os": {
+      "version": "10.0",
+      "ui": "iOS"
+  },
+  "battery": {
+      "standbyTime": "420 hours",
+      "talkTime": "7 hours",
+      "type": "Lithium Ion (Li-Ion) (3300 mAH)"
+  },
+  "camera": {
+      "features": [
+          "Flash",
+          "Video"
+      ],
+      "primary": "8Mpx",
+      "front": "7Mpx",
+      "zoom": "digital 5x"
+  },
+  "connectivity": {
+      "bluetooth": "Bluetooth 5.0",
+      "cell": "GSM, LTE, UMTS",
+      "gps": true,
+      "infrared": false,
+      "wifi": "802.11 b/g/n"
+  },
+  "display": {
+      "screenResolution": "2224x1668",
+      "screenSize": "10.5 inches",
+      "typeScreen": "IPS"
+  },
+  "id": "apple_ipad_air_cell_256gb_gold",
+  "images": [
+      "img/tablets/IPad_Air/ipad_air_gold.0.jpg",
+      "img/tablets/IPad_Air/ipad_air_gold.1.jpg",
+      "img/tablets/IPad_Air/ipad_air_gold.2.jpg",
+      "img/tablets/IPad_Air/ipad_air_gold.3.jpg"
+  ],
+  
+
+  "name": "Apple IPad Air Wi-Fi + Cellular 256Gb Gold",
+  "storage": {
+      "flash": "256Gb",
+      "ram": "3GB",
+      "availableFlash": [
+          "64Gb",
+          "256Gb"
+      ]
+  },
+  "processor": "Apple A12",
+    "description": [
+       { "title": "Everything you need in just a pound.", "text": "iPad Air features a large 10.5‑inch Retina display, while remaining extremely portable and perfect for getting things done anywhere. It’s thin and light and has advanced wireless connectivity. And with up to 10 hours of battery life, iPad Air can go all day on a single charge."},
+       { "title": "Stay connected from anywhere.", "text": "With Wi‑Fi speeds up to 866 Mbps and Gigabit‑class LTE, iPad Air keeps you connected wirelessly and effortlessly.2 And with eSIM, you can easily access wireless data plans right from your iPad Air all over the world."},
+       { "title": "Power to do it all. All at once.", "text":  "The A12 Bionic chip with Neural Engine enables a remarkable level of power and intelligence. It uses real‑time machine learning to transform the way you experience photos, gaming, augmented reality, and more. With all this power, you can edit a video. Create a beautiful presentation. Design a 3D model. Stream your favorite show. Or do all of those things at once."}
+  ],
+  "color": "gold",
+  "colorHash": "#FFDF00",
+  "avalibleColors": [
+      {"title": "gold", "value": "#FFDF00"},
+      {"title": "silver", "value": "#C0C0C0"},
+      {"title": "space_grey", "value": "#4B4B4C"}
+  ],
+  "cellOption": "cell",
+  "availableCellOptions": [
+        "wi-fi",
+        "cell"
+    ]
+}

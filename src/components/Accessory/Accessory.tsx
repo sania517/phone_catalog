@@ -82,8 +82,8 @@ const Accessory: FC<Props> = (props) => {
       <Link to={`/accessories/${id}`} className="accessory__img-container">
         <img src={imageUrl} alt="accessory" className="accessory__img" />
       </Link>
-      <Link to={`/accessories/${id}`} className="accessory__title">
-        {name}
+      <Link to={`/accessories/${id}`} className="accessory__title-link">
+        <p className="accessory__title">{name}</p>
       </Link>
       <div className="accessory__price">
         <h2 className="accessory__discount">
@@ -125,14 +125,18 @@ const Accessory: FC<Props> = (props) => {
         >
           {isInBasket ? 'Added to cart' : 'Add to cart'}
         </button>
-        <button type="button" onClick={onFeaturedHandler}>
+        <button
+          type="button"
+          onClick={onFeaturedHandler}
+          className="accessory__favorite-button"
+        >
           <img
             src={isInFeatured
               ? heartLike
               : heart
             }
             alt="favorite button"
-            className="accessory__favorite-button"
+            className="accessory__favorite-button-img"
           />
         </button>
       </div>
