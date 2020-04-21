@@ -10,23 +10,13 @@
     "name": "Tablets"
   },
   {
-    "id": "banner_3",
-    "imageUrl": "img/banners/banner_3.jpg",
-    "name": "Accessories"
-  },
-  {
     "id": "banner_4",
     "imageUrl": "img/banners/banner_4.jpg",
     "name": "Phones"
-},
-{
-    "id": "banner_5",
-    "imageUrl": "img/banners/banner_5.jpg",
-    "name": "Tablets"
-},
-{
-    "id": "banner_6",
-    "imageUrl": "img/banners/banner_6.jpg",
-    "name": "Accessories"
-}
+  },
+  {
+      "id": "banner_6",
+      "imageUrl": "img/banners/banner_6.jpg",
+      "name": "Accessories"
+  }
 ]

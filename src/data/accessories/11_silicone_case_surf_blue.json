@@ -1,0 +1,24 @@
+{
+  "id": "11_silicone_case_surf_blue",
+  "images": [
+      "img/accessories/11_silicone_case/11_silicone_case_surf_blue.0.jpeg",
+      "img/accessories/11_silicone_case/11_silicone_case_surf_blue.1.jpeg",
+      "img/accessories/11_silicone_case/11_silicone_case_surf_blue.2.jpeg"
+  ],
+  "name": "Apple silicone case for IPhone 11",
+  "description": [
+       { "title": "Overview", "text": "Designed by Apple to complement iPhone SE, the form of the silicone case fits snugly over the volume buttons, side button, and curves of your device without adding bulk. A soft microfiber lining on the inside helps protect your iPhone. On the outside, the silky, soft-touch finish of the silicone exterior feels great in your hand. And you can keep it on all the time, even when you’re charging wirelessly. Like every Apple-designed case, it undergoes thousands of hours of testing throughout the design and manufacturing process. So not only does it look great, it’s built to protect your iPhone from scratches and drops."}
+  ],
+  "color": "surf_blue",
+  "colorHash": "#398ad7",
+  "avalibleColors": [
+
+      {"title": "cactus", "value": "#5b6f55"},
+      {"title": "white", "value": "#fafbfc"},
+      {"title": "black", "value": "#171316"},
+      {"title": "surf_blue", "value": "#398ad7"},
+      {"title": "grapefruite", "value": "#ffdfdf"}
+  ],
+  "produced": "Apple",
+  "forModel": "IPhone 11"
+}

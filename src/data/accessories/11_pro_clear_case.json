@@ -1,0 +1,18 @@
+{
+  "id": "11_pro_clear_case",
+  "images": [
+      "img/accessories/11_pro_clear_case/11_pro_clear_case_transparent.0.jpeg",
+      "img/accessories/11_pro_clear_case/11_pro_clear_case_transparent.1.jpeg",
+      "img/accessories/11_pro_clear_case/11_pro_clear_case_transparent.2.jpeg",
+      "img/accessories/11_pro_clear_case/11_pro_clear_case_transparent.3.jpeg"
+  ],
+  "name": "Apple Clear case for IPhone 11 Pro",
+  "description": [
+       { "title": "Overview", "text": "Thin, light, and easy to grip — this Apple-designed case shows off the brilliant colored finish of iPhone 11 Pro while providing extra protection."},
+    {"title": "", "text": "Made from a blend of optically clear polycarbonate and flexible TPU materials, the iPhone 11 Clear Case provides a solid, comfortable feel. The back is designed to be sturdy, while the sides are made from a softer, more flexible material that fits right over the buttons for an improved grip. And when it’s time to wirelessly charge, just leave the case on and set your iPhone on your Qi-certified charger.\nOn the surface, a scratch-resistant coating has been applied to both the interior and exterior. And all materials and coatings are optimized to prevent yellowing over time."},
+    {"title": "", "text": "Like every Apple-designed case, it undergoes thousands of hours of testing throughout the design and manufacturing process. So not only does it look great, it’s built to protect your iPhone from scratches and drops."}
+  ],
+  "color": "transparent",
+  "produced": "Apple",
+  "forModel": "IPhone 11 Pro"
+}

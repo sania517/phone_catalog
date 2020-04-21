@@ -212,61 +212,44 @@ const AccessoryDetailsPage: FC<fullProps> = (props) => {
                   </div>
                 </div>
                 <div className="accessory-details__main-properties">
-                  <div className="color-container">
-                    <p className="color-container__title">Available colors</p>
-                    <ul className="color-container__list">
-                      {accessoryData.avalibleColors.map(color1 => (
-                        <Fragment key={color1.title}>
-                          <Link
-                            key={color1.title}
-                            to={`/accessories/${match.params.accessoryId
-                              .replace(/gb_.+/gim, `gb_${color1.title}`)}`
-                            }
-                            className={`color-container__outer-border${
-                              color1.title === accessoryData.color
-                                ? ' color-container__outer-border--active'
-                                : ''}`
-                            }
-                          >
-                            <div
-                              className="color-container__item"
-                              style={{ backgroundColor: color1.value }}
-                              title={color1.title.replace(/_/g, ' ')}
-                            />
-                          </Link>
-                        </Fragment>
-                      ))}
-                    </ul>
-                  </div>
-                  <hr />
-                  <div className="memory-container">
-                    <p className="memory-container__title">Select capacity</p>
-                    <ul className="memory-container__list">
-                      {accessoryData.storage.availableFlash.map(item => (
-                        <li
-                          key={item}
-                          className={`memory-container__item${
-                            accessoryData.storage.flash === item
-                              ? ' memory-container__item--active'
-                              : ''}`}
-                        >
-                          <Link
-                            to={`/accessories/${match.params.accessoryId
-                              .replace(/_\d*gb_/gi, `_${item}_`
-                                .toLowerCase())}`
-                            }
-                            className={`memory-container__link${
-                              accessoryData.storage.flash === item
-                                ? ' memory-container__link--active'
-                                : ''}`}
-                          >
-                            {item}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <hr />
+                  {!accessoryData.avalibleColors
+                    ? ''
+                    : (
+                      <>
+                        <div className="color-container">
+                          <p className="color-container__title">
+                            Available colors
+                          </p>
+                          <ul className="color-container__list">
+                            {accessoryData.avalibleColors.map(color1 => (
+                              <Fragment key={color1.title}>
+                                <Link
+                                  key={color1.title}
+                                  to={`/accessories/${match.params.accessoryId
+                                    .replace(
+                                      /case_.+/gim,
+                                      `case_${color1.title}`,
+                                    )}`
+                                  }
+                                  className={`color-container__outer-border${
+                                    color1.title === accessoryData.color
+                                      ? ' color-container__outer-border--active'
+                                      : ''}`
+                                  }
+                                >
+                                  <div
+                                    className="color-container__item"
+                                    style={{ backgroundColor: color1.value }}
+                                    title={color1.title.replace(/_/g, ' ')}
+                                  />
+                                </Link>
+                              </Fragment>
+                            ))}
+                          </ul>
+                        </div>
+                        <hr />
+                      </>
+                    )}
                   <div className="accessory-details__price-container">
                     {price[1]
                       ? (
@@ -301,6 +284,7 @@ const AccessoryDetailsPage: FC<fullProps> = (props) => {
                     <button
                       type="button"
                       onClick={onFeaturedHandler}
+                      className="favorite-button"
                     >
                       <img
                         src={isInFeatured ? heartLike : heart}
@@ -311,32 +295,21 @@ const AccessoryDetailsPage: FC<fullProps> = (props) => {
                   </div>
                   <div className="accessory-details__main-container">
                     <div className="accessory__details details">
-                      <p className="details__title">Screen</p>
+                      <p className="details__title">Color</p>
                       <p className="details__value">
-                        {accessoryData.display.screenSize
-                          ? `${accessoryData.display.screenSize.split(' ')[0]}"`
-                          : ''
-                        }
-                        {' '}
-                        {accessoryData.display.typeScreen}
+                        {accessoryData.color.replace(/_/, ' ')}
                       </p>
                     </div>
                     <div className="accessory__details details">
-                      <p className="details__title">Resolution</p>
+                      <p className="details__title">For model</p>
                       <p className="details__value">
-                        {accessoryData.display.screenResolution}
+                        {accessoryData.forModel}
                       </p>
                     </div>
                     <div className="accessory__details details">
-                      <p className="details__title">Processor</p>
+                      <p className="details__title">Prodused by</p>
                       <p className="details__value">
-                        {accessoryData.processor}
-                      </p>
-                    </div>
-                    <div className="accessory__details details">
-                      <p className="details__title">RAM</p>
-                      <p className="details__value">
-                        {accessoryData.storage.ram}
+                        {accessoryData.produced}
                       </p>
                     </div>
 
@@ -344,7 +317,7 @@ const AccessoryDetailsPage: FC<fullProps> = (props) => {
                 </div>
               </div>
               <p className="accessory-details__id">
-ID:
+                ID:
                 {accessoryData.id}
               </p>
               <div className="accessory-details__description-container">
@@ -361,62 +334,6 @@ ID:
                     </Fragment>
                   ))}
 
-                </div>
-                <div className="accessory-details__tech-specs tech-specs">
-                  <p className="tech-specs__title">Tech specs</p>
-                  <div className="tech-specs__details">
-                    <p className="tech-specs__property">Screen</p>
-                    <p className="tech-specs__value">
-                      {accessoryData.display.screenSize
-                        ? `${accessoryData.display.screenSize.split(' ')[0]}"`
-                        : ''
-                      }
-                      {' '}
-                      {accessoryData.display.typeScreen}
-                    </p>
-                  </div>
-                  <div className="tech-specs__details">
-                    <p className="tech-specs__property">Resolution</p>
-                    <p className="tech-specs__value">
-                      {accessoryData.display.screenResolution}
-                    </p>
-                  </div>
-                  <div className="tech-specs__details">
-                    <p className="tech-specs__property">Processor</p>
-                    <p className="tech-specs__value">
-                      {accessoryData.processor}
-                    </p>
-                  </div>
-                  <div className="tech-specs__details">
-                    <p className="tech-specs__property">RAM</p>
-                    <p className="tech-specs__value">
-                      {accessoryData.storage.ram}
-                    </p>
-                  </div>
-                  <div className="tech-specs__details">
-                    <p className="tech-specs__property">Built in memory</p>
-                    <p className="tech-specs__value">
-                      {accessoryData.storage.flash}
-                    </p>
-                  </div>
-                  <div className="tech-specs__details">
-                    <p className="tech-specs__property">Camera</p>
-                    <p className="tech-specs__value">
-                      {accessoryData.camera.primary}
-                    </p>
-                  </div>
-                  <div className="tech-specs__details">
-                    <p className="tech-specs__property">Zoom</p>
-                    <p className="tech-specs__value">
-                      {accessoryData.camera.zoom}
-                    </p>
-                  </div>
-                  <div className="tech-specs__details">
-                    <p className="tech-specs__property">Cell</p>
-                    <p className="tech-specs__value">
-                      {accessoryData.connectivity.cell}
-                    </p>
-                  </div>
                 </div>
               </div>
             </>

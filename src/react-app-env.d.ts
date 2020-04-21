@@ -14,6 +14,9 @@ interface Phone {
   regularPrice: number;
   discount?: number;
   cellOption?: string;
+  produced: string;
+  color: string;
+  forModel: string;
 }
 
 type FeaturedGood = PhoneFeathured | TabletFeathured | AccessoryFeathured
@@ -36,6 +39,9 @@ interface Tablet {
   regularPrice: number;
   discount?: number;
   cellOption?: string;
+  produced: string;
+  color: string;
+  forModel: string;
 }
 
 interface TabletFeathured extends Tablet {
@@ -56,6 +62,9 @@ interface Accessory {
   regularPrice: number;
   discount?: number;
   cellOption?: string;
+  produced: string;
+  color: string;
+  forModel: string;
 }
 
 interface AccessoryFeathured extends Accessory {
@@ -125,40 +134,23 @@ interface TabletDetails {
 interface AccessoryDetails {
   name: string;
   images: string[];
-  storage: {
-    flash: string;
-    ram: string;
-    availableFlash: string[];
-  };
-  processor: string;
   description: Array<{title: string; text: string}>;
   id: string;
-  display: {
-    screenResolution: string;
-    screenSize: string;
-    typeScreen: string;
-  };
-  connectivity: {
-    cell: string;
-  };
-  camera: {
-    primary: string;
-    front: string;
-    zoom: string;
-  };
   color: string;
   colorHash: string;
   avalibleColors: Array<{title: string; value: string}>;
+  produced: string;
+  forModel: string;
 }
 
-enum sortOptions {
-  name = 'name',
-  newest = 'newest',
-  oldest = 'oldest',
-  cheaper = 'cheaper',
-  expensive = 'expensive',
-  rating = 'rating',
-}
+// enum sortOptions {
+//   name = 'name',
+//   newest = 'newest',
+//   oldest = 'oldest',
+//   cheaper = 'cheaper',
+//   expensive = 'expensive',
+//   rating = 'rating',
+// }
 
 interface BasketItem {
   img: string;

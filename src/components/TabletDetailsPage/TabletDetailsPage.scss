@@ -1,3 +1,7 @@
+i svg {
+  color: red;
+}
+
 .tablet-details {
   &__buttons {
     height: 40px;
@@ -153,7 +157,6 @@
 }
 
 .color-container {
-  height: 55px;
   width: fit-content;
   margin-bottom: 24px;
 
@@ -168,6 +171,7 @@
   &__list {
     display: flex;
     justify-content: start;
+    flex-wrap: wrap;
   }
 
   &__outer-border {
@@ -179,6 +183,7 @@
     border-radius: 50%;
     padding: 2px;
     margin-right: 8px;
+    margin-bottom: 8px;
   }
 
   &__outer-border--active {

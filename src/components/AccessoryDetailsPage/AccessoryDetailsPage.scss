@@ -32,7 +32,7 @@
   }
 
   &__favorite-button {
-    width: 40px;
+    width: 100%;
     height: 100%;
     padding: 11px;
     border: 1px solid #B4BDC4;
@@ -70,7 +70,6 @@
     max-width: 1440px;
     margin: 0 auto;
     position: relative;
-    background-color: rgb(245, 217, 217);
 
     hr {
       height: 1px;
@@ -154,7 +153,6 @@
 }
 
 .color-container {
-  height: 55px;
   width: fit-content;
   margin-bottom: 24px;
 
@@ -169,6 +167,7 @@
   &__list {
     display: flex;
     justify-content: start;
+    flex-wrap: wrap;
   }
 
   &__outer-border {
@@ -180,6 +179,8 @@
     border-radius: 50%;
     padding: 2px;
     margin-right: 8px;
+    margin-bottom: 8px;
+
   }
 
   &__outer-border--active {
@@ -190,50 +191,6 @@
     height: 100%;
     width: 100%;
     border-radius: 50%;
-  }
-}
-
-.memory-container {
-  height: 55px;
-  width: fit-content;
-  margin: 24px 0;
-
-  &__title {
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 15px;
-    color: #89939a;
-    margin-bottom: 8px;
-  }
-
-  &__list {
-    display: flex;
-    justify-content: start;
-    list-style-type: none;
-  }
-
-  &__item {
-    padding: 7px 8px 4px;
-    margin-right: 8px;
-    border: 1px solid #B4BDC4;
-    box-sizing: border-box;
-  }
-
-  &__item--active {
-    border-width: 0;
-    background-color: #313237;
-  }
-
-  &__link {
-    text-decoration: none;
-    color: #313237;
-    font-size: 14px;
-    line-height: 21px;
-    text-transform: uppercase;
-  }
-
-  &__link--active {
-    color: #fff;
   }
 }
 

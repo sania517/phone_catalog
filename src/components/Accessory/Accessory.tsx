@@ -41,10 +41,9 @@ const Accessory: FC<Props> = (props) => {
     name,
     regularPrice,
     discount,
-    screenSize,
-    screenType,
-    flash,
-    ram,
+    color,
+    forModel,
+    produced,
   } = accessory;
 
   const onAddButton = () => {
@@ -98,20 +97,18 @@ const Accessory: FC<Props> = (props) => {
         }
       </div>
       <div className="accessory__details details">
-        <p className="details__title">Screen</p>
+        <p className="details__title">Color:</p>
         <p className="details__value">
-          {screenSize ? `${screenSize}"` : ''}
-          {' '}
-          {screenType}
+          {color ? `${color}"` : ''}
         </p>
       </div>
       <div className="accessory__details details">
-        <p className="details__title">Capacity</p>
-        <p className="details__value">{flash}</p>
+        <p className="details__title">For model</p>
+        <p className="details__value">{forModel}</p>
       </div>
       <div className="accessory__details details">
-        <p className="details__title">RAM</p>
-        <p className="details__value">{ram}</p>
+        <p className="details__title">Produced by</p>
+        <p className="details__value">{produced}</p>
       </div>
       <div className="accessory__buttons">
         <button

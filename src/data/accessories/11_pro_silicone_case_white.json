@@ -1,0 +1,31 @@
+{
+  "id": "11_pro_silicone_case_white",
+  "images": [
+      "img/accessories/11_pro_silicone_case/11_pro_clear_case_white.0.jpeg",
+      "img/accessories/11_pro_silicone_case/11_pro_clear_case_white.1.jpeg",
+      "img/accessories/11_pro_silicone_case/11_pro_clear_case_white.2.jpeg"
+  ],
+  "name": "Apple silicone case for IPhone 11 Pro",
+  "description": [
+       { "title": "Overview", "text": "Designed by Apple to complement iPhone SE, the form of the silicone case fits snugly over the volume buttons, side button, and curves of your device without adding bulk. A soft microfiber lining on the inside helps protect your iPhone. On the outside, the silky, soft-touch finish of the silicone exterior feels great in your hand. And you can keep it on all the time, even when you’re charging wirelessly. Like every Apple-designed case, it undergoes thousands of hours of testing throughout the design and manufacturing process. So not only does it look great, it’s built to protect your iPhone from scratches and drops."}
+  ],
+  "color": "white",
+  "colorHash": "#fafbfc",
+  "avalibleColors": [
+      {"title": "alaskan_blue", "value": "#39587"},
+      {"title": "beryl", "value": "#aeb987"},
+      {"title": "black", "value": "#171316"},
+      {"title": "cactus", "value": "#5b6f55"},
+      {"title": "clementine", "value": "#ff8242"},
+      {"title": "grapefruite", "value": "#ffdfdf"},
+      {"title": "midnight_blue", "value": "#333356"},
+      {"title": "pine_green", "value": "#508971"},
+      {"title": "pink_sand", "value": "#ffe0da"},
+      {"title": "pomegranate", "value": "#f6548a"},
+      {"title": "red", "value": "#c71841"},
+      {"title": "surf_blue", "value": "#398ad7"},
+      {"title": "white", "value": "#fafbfc"}
+  ],
+  "produced": "Apple",
+  "forModel": "IPhone 11 Pro"
+}

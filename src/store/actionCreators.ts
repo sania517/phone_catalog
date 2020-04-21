@@ -1,4 +1,5 @@
 import { Dispatch } from 'redux';
+
 import { ActionTypes } from './ActionTypes';
 import {
   loadPhonesFromAPI,
@@ -10,7 +11,7 @@ import {
 } from '../util/util';
 import { getActiveCategory } from './selectors';
 import { store } from './store';
-import { goodsOptions, paginationOptions } from '../util/enums';
+import { goodsOptions, paginationOptions, sortOptions } from '../util/enums';
 import Tablet from '../components/Tablet/Tablet';
 
 export const deleteBasketItem = (payload: string) => ({

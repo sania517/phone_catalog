@@ -1,0 +1,23 @@
+{
+  "id": "se_leather_case_red",
+  "images": [
+      "img/accessories/se_leather_case/se_leather_case_red.0.jpeg",
+      "img/accessories/se_leather_case/se_leather_case_red.1.jpeg",
+      "img/accessories/se_leather_case/se_leather_case_red.2.jpeg",
+      "img/accessories/se_leather_case/se_leather_case_red.3.jpeg"
+  ],
+  "name": "Apple leather case for IPhone SE",
+  "description": [
+       { "title": "Overview", "text": "These Apple-designed cases fit snugly over the curves of your iPhone without adding bulk. They’re made from specially tanned and finished European leather, so the outside feels soft to the touch and develops a natural patina over time. The machined aluminum buttons match the finish of your leather case, while a microfiber lining inside helps protect your iPhone. And you can keep it on all the time, even when you’re charging wirelessly. Like every Apple-designed case, it undergoes thousands of hours of testing throughout the design and manufacturing process. So not only does it look great, it’s built to protect your iPhone from scratches and drops."}
+  ],
+  "color": "red",
+  "colorHash": "#c71841",
+  "avalibleColors": [
+
+      {"title": "midnight_blue", "value": "#333356"},
+      {"title": "red", "value": "#c71841"},
+      {"title": "black", "value": "#171316"}
+  ],
+  "produced": "Apple",
+  "forModel": "IPhone SE"
+}

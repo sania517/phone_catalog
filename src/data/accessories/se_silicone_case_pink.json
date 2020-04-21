@@ -1,0 +1,23 @@
+{
+  "id": "se_silicone_case_pink",
+  "images": [
+      "img/accessories/se_silicone_case/se_silicone_case_pink.0.jpeg",
+      "img/accessories/se_silicone_case/se_silicone_case_pink.1.jpeg",
+      "img/accessories/se_silicone_case/se_silicone_case_pink.2.jpeg",
+      "img/accessories/se_silicone_case/se_silicone_case_pink.3.jpeg"
+  ],
+  "name": "Apple silicone case for IPhone SE",
+  "description": [
+       { "title": "Overview", "text": "Designed by Apple to complement iPhone SE, the form of the silicone case fits snugly over the volume buttons, side button, and curves of your device without adding bulk. A soft microfiber lining on the inside helps protect your iPhone. On the outside, the silky, soft-touch finish of the silicone exterior feels great in your hand. And you can keep it on all the time, even when you’re charging wirelessly. Like every Apple-designed case, it undergoes thousands of hours of testing throughout the design and manufacturing process. So not only does it look great, it’s built to protect your iPhone from scratches and drops."}
+  ],
+  "color": "pink",
+  "colorHash": "#fbd2d7",
+  "avalibleColors": [
+
+      {"title": "pink", "value": "#fbd2d7"},
+      {"title": "white", "value": "#fafbfc"},
+      {"title": "black", "value": "#171316"}
+  ],
+  "produced": "Apple",
+  "forModel": "IPhone SE"
+}

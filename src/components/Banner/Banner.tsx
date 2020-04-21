@@ -52,7 +52,7 @@ export const Banner: FC<Props> = ({ banners }) => {
           onClick={onNextButton}
           disabled={position === banners.length - 1}
         >
-          <img src={arrowUp} alt="" className="banner__button-next" />
+          <i><img src={arrowUp} alt="" className="banner__button-next" /></i>
         </button>
       </div>
       <div className="banner__points">

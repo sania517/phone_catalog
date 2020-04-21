@@ -289,6 +289,7 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
                     <button
                       type="button"
                       onClick={onFeaturedHandler}
+                      className="favorite-button"
                     >
                       <img
                         src={isInFeatured ? heartLike : heart}
