@@ -169,16 +169,15 @@
     "goodCategory": "tablet"
   },
   {
-    "age": 20,
-    "id": "accessory_apple_iphone_11_pro_max_128gb_midnight_green",
-    "imageUrl": "img/phones/IPhone_11_pro_max/apple_iphone_11_pro_max_midnight_green.0.jpg",
-    "name": "accessory_Apple IPhone 11 Pro Max 128Gb Midnight Green",
-    "ram": "4Gb",
-    "flash": "128Gb",
-    "regularPrice": 37999,
-    "discount": 2,
-    "screenSize": "6.5",
-    "screenType": "OLED",
+    "age": 19,
+    "id": "11_pro_silicone_case_clementine",
+    "imageUrl": "img/accessories/11_pro_silicone_case/11_pro_clear_case_clementine.0.jpeg",
+    "name": "Apple Silicone case for IPhone 11 Pro",
+    "regularPrice": 39,
+    "discount": 5,
+    "produced": "Apple",
+    "color": "Clementine",
+    "forModel": "IPhone 11 Pro",
     "goodCategory": "accessory"
   },
   {
