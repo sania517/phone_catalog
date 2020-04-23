@@ -37,7 +37,7 @@ const Header: FC<Props> = (props) => {
 
   useEffect(() => {
     setQuery('');
-  }, [currentUrl]);
+  }, [currentUrl, setQuery]);
 
   return (
     <header className="header">

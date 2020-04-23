@@ -170,7 +170,7 @@ i svg {
 
   &__list {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     flex-wrap: wrap;
   }
 
@@ -213,7 +213,7 @@ i svg {
 
   &__list {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     list-style-type: none;
   }
 

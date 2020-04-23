@@ -117,7 +117,7 @@ const TabletDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
           setIsTabletRequested(true);
         },
       );
-  }, [match.params.tabletId, tablets.length]);
+  }, [match.params.tabletId, tablets.length, setTablets]);
 
   return !tabletData && !isTabletRequested && !getLoading
     ? <Loader />

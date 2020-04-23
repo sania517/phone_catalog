@@ -123,7 +123,7 @@ const AccessoryDetailsPage: FC<fullProps> = (props) => {
           setIsAccessoryRequested(true);
         },
       );
-  }, [match.params.accessoryId, accessories.length]);
+  }, [match.params.accessoryId, accessories.length, setAccessories]);
 
   return !accessoryData && !isAccessoryRequested && !getLoading
     ? <Loader />

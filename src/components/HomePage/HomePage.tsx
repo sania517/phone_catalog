@@ -38,7 +38,7 @@ const HomePage: FC<Props> = ({ allGoods, loadAllGoods }) => {
     if (!hotPricesGoods.length) {
       loadAllGoods();
     }
-  }, []);
+  }, [hotPricesGoods.length, loadAllGoods]);
 
   return !hotPricesGoods.length
     ? <Loader />

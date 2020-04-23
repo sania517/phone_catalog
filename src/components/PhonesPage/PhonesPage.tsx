@@ -58,7 +58,7 @@ const PhonesPage: FC<Props> = (props) => {
     }
 
     setActive(goodsOptions.phone);
-  }, []);
+  }, [phones.length, setPhones, setActive]);
 
   return !phones.length
     ? <Loader />

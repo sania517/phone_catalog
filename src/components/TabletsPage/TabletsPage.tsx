@@ -58,7 +58,7 @@ const PhonesPage: FC<Props> = (props) => {
     }
 
     setActive(goodsOptions.tablet);
-  }, []);
+  }, [tablets.length, setTablets, setActive]);
 
   return !tablets.length
     ? <Loader />

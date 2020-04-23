@@ -58,7 +58,7 @@ const AccessoriesPage: FC<Props> = (props) => {
     }
 
     setActive(goodsOptions.accessory);
-  }, []);
+  }, [accessories.length, setAccessories, setActive]);
 
   return !accessories.length
     ? <Loader />

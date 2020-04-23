@@ -23,6 +23,8 @@ import {
   getPhoneById,
 } from '../../store/selectors';
 import { goodsOptions } from '../../util/enums';
+import { ImagesContainer } from '../ImagesContainer/ImagesContainer';
+import { MemoryContainer } from '../MemoryContainer/MemoryContainer';
 
 interface Props {
   phone: Phone | undefined;
@@ -55,7 +57,6 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
   } = props;
 
   const [phoneData, setPhoneData] = useState<PhoneDetails | null>(null);
-  const [currentImg, setCurrentImg] = useState(0);
   const [isPhoneRequested, setIsPhoneRequested] = useState(false);
   const history = useHistory();
 
@@ -104,7 +105,6 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
       setPhones();
     }
 
-    setCurrentImg(0);
     loadPhoneFromAPI(match.params.phoneId)
       .then(
         data => {
@@ -117,7 +117,7 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
           setIsPhoneRequested(true);
         },
       );
-  }, [match.params.phoneId, phones.length]);
+  }, [match.params.phoneId, phones.length, setPhones]);
 
   return !phoneData && !isPhoneRequested && !getLoading
     ? <Loader />
@@ -166,43 +166,7 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
           : (
             <>
               <div className="phone-details__main-discription-container">
-                <div className="phone-details__imgs-container imgs-container">
-                  <ul className="imgs-container__gallery">
-                    {phoneData.images.map((item, i) => {
-                      return (
-                        <li
-                          className={
-                            `imgs-container__item${
-                              i === currentImg
-                                ? ' imgs-container__item--active'
-                                : ''
-                            }`
-                          }
-                          key={item}
-                          onMouseOver={() => {
-                            setCurrentImg(i);
-                          }}
-                          onFocus={() => {
-                            setCurrentImg(i);
-                          }}
-                        >
-                          <img
-                            className="imgs-container__img"
-                            src={item}
-                            alt=""
-                          />
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  <div className="imgs-container__main-img-container">
-                    <img
-                      src={phoneData.images[currentImg]}
-                      alt="current phone"
-                      className="imgs-container__main-img"
-                    />
-                  </div>
-                </div>
+                <ImagesContainer images={phoneData.images} />
                 <div className="phone-details__main-properties">
                   <div className="color-container">
                     <p className="color-container__title">Available colors</p>
@@ -231,34 +195,10 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
                     </ul>
                   </div>
                   <hr />
-                  <div className="memory-container">
-                    <p className="memory-container__title">Select capacity</p>
-                    <ul className="memory-container__list">
-                      {phoneData.storage.availableFlash.map(item => (
-                        <li
-                          key={item}
-                          className={`memory-container__item${
-                            phoneData.storage.flash === item
-                              ? ' memory-container__item--active'
-                              : ''}`}
-                        >
-                          <Link
-                            to={`/phones/${match.params.phoneId
-                              .replace(/_\d*gb_/gi, `_${item}_`
-                                .toLowerCase())}`
-                            }
-                            className={`memory-container__link${
-                              phoneData.storage.flash === item
-                                ? ' memory-container__link--active'
-                                : ''}`}
-                          >
-                            {item}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <hr />
+                  <MemoryContainer
+                    flashOptions={phoneData.storage.availableFlash}
+                    currentFlash={phoneData.storage.flash}
+                  />
                   <div className="phone-details__price-container">
                     {price[1]
                       ? (
@@ -329,7 +269,7 @@ const PhoneDetailsPage: FC<RouteComponentProps<TParams> & Props> = (props) => {
                 </div>
               </div>
               <p className="phone-details__id">
-ID:
+                ID:
                 {phoneData.id}
               </p>
               <div className="phone-details__description-container">

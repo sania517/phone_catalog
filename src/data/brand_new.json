@@ -27,16 +27,15 @@
       "goodCategory": "phone"
   },
   {
-    "age": 20,
-    "id": "accessory_apple_iphone_11_128gb_black",
-    "imageUrl": "img/phones/IPhone_11/apple_iphone_11_black.0.jpg",
-    "name": "accessory_Apple IPhone 11 128Gb Black",
-    "ram": "4Gb",
-    "flash": "128Gb",
-    "regularPrice": 27499,
-    "discount": 2,
-    "screenSize": "6.1",
-    "screenType": "IPS",
+    "age": 19,
+    "id": "11_pro_silicone_case_surf_blue",
+    "imageUrl": "img/accessories/11_pro_silicone_case/11_pro_clear_case_surf_blue.0.jpeg",
+    "name": "Apple Silicone case for IPhone 11 Pro",
+    "regularPrice": 39,
+    "discount": 5,
+    "produced": "Apple",
+    "color": "Surf blue",
+    "forModel": "IPhone 11 Pro",
     "goodCategory": "accessory"
   },
   {
@@ -93,16 +92,15 @@
     "goodCategory": "phone"
   },
   {
-    "age": 20,
-    "id": "accessory_apple_iphone_11_64gb_black",
-    "imageUrl": "img/phones/IPhone_11/apple_iphone_11_black.0.jpg",
-    "name": "accessory_Apple IPhone 11 64Gb Black",
-    "ram": "4Gb",
-    "flash": "64Gb",
-    "regularPrice": 22999,
-    "discount": 2,
-    "screenSize": "6.1",
-    "screenType": "IPS",
+    "age": 19,
+    "id": "11_pro_silicone_case_red",
+    "imageUrl": "img/accessories/11_pro_silicone_case/11_pro_clear_case_red.0.jpeg",
+    "name": "Apple Silicone case for IPhone 11 Pro",
+    "regularPrice": 39,
+    "discount": 5,
+    "produced": "Apple",
+    "color": "Red",
+    "forModel": "IPhone 11 Pro",
     "goodCategory": "accessory"
   },
   {
@@ -184,29 +182,27 @@
     "goodCategory": "accessory"
   },
   {
-    "age": 20,
-    "id": "accessory_apple_iphone_11_pro_max_256gb_midnight_green",
-    "imageUrl": "img/phones/IPhone_11_pro_max/apple_iphone_11_pro_max_midnight_green.0.jpg",
-    "name": "accessory_Apple IPhone 11 Pro Max 256Gb Midnight Green",
-    "ram": "4Gb",
-    "flash": "256Gb",
-    "regularPrice": 39999,
-    "discount": 2,
-    "screenSize": "6.5",
-    "screenType": "OLED",
+    "age": 19,
+    "id": "11_pro_silicone_case_pine_green",
+    "imageUrl": "img/accessories/11_pro_silicone_case/11_pro_clear_case_pine_green.0.jpeg",
+    "name": "Apple Silicone case for IPhone 11 Pro",
+    "regularPrice": 39,
+    "discount": 5,
+    "produced": "Apple",
+    "color": "Pine green",
+    "forModel": "IPhone 11 Pro",
     "goodCategory": "accessory"
   },
   {
-    "age": 20,
-    "id": "accessory_apple_iphone_11_256gb_black",
-    "imageUrl": "img/phones/IPhone_11/apple_iphone_11_black.0.jpg",
-    "name": "accessory_Apple IPhone 11 256Gb Black",
-    "ram": "4Gb",
-    "flash": "256Gb",
-    "regularPrice": 29999,
-    "discount": 2,
-    "screenSize": "6.1",
-    "screenType": "IPS",
+    "age": 19,
+    "id": "11_pro_silicone_case_midnight_blue",
+    "imageUrl": "img/accessories/11_pro_silicone_case/11_pro_clear_case_midnight_blue.0.jpeg",
+    "name": "Apple Silicone case for IPhone 11 Pro",
+    "regularPrice": 39,
+    "discount": 5,
+    "produced": "Apple",
+    "color": "Midnight blue",
+    "forModel": "IPhone 11 Pro",
     "goodCategory": "accessory"
   },
   {
@@ -222,5 +218,4 @@
     "screenType": "OLED",
     "goodCategory": "phone"
   }
-
 ]
