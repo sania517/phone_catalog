@@ -37,7 +37,7 @@
     "gh-pages": "^2.2.0",
     "husky": "^4.0.10",
     "lint-staged": "^9.5.0",
-    "stylelint": "^13.0.0"
+    "stylelint": "^15.10.1"
   },
   "scripts": {
     "client": "react-scripts start",
